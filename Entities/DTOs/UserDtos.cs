@@ -58,6 +58,9 @@ namespace Entities.DTOs
         [Required]
         public Guid Id { get; set; }
 
+        [EmailAddress]
+        public string? Email { get; set; }
+
         [StringLength(100)]
         public string? FullName { get; set; }
 

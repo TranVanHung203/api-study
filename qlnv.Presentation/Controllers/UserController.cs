@@ -122,6 +122,16 @@ namespace qlnv.Presentation.Controllers
 
             if (!string.IsNullOrWhiteSpace(dto.FullName)) existing.FullName = dto.FullName;
 
+            // Allow updating email (must be unique)
+            if (!string.IsNullOrWhiteSpace(dto.Email) && !string.Equals(dto.Email, existing.Email, StringComparison.OrdinalIgnoreCase))
+            {
+                var byEmail = await _repo.GetByEmailAsync(dto.Email);
+                if (byEmail != null && byEmail.Id != existing.Id)
+                    return Conflict(new { message = "Email already exists" });
+
+                existing.Email = dto.Email;
+            }
+
             await _repo.UpdateAsync(existing);
 
             return Ok(new UserDto { Id = existing.Id, Username = existing.Username, Email = existing.Email, FullName = existing.FullName, Role = existing.Role });

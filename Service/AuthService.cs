@@ -75,7 +75,7 @@ namespace Service
             user.EmailConfirmationExpiry = DateTime.UtcNow.AddHours(1);
             await _userRepo.UpdateAsync(user);
 
-            var link = $"http://localhost:4200/reset-password?email={user.Email}&token={Uri.EscapeDataString(user.EmailConfirmationToken)}";
+            var link = $"http://192.168.1.140:8080/reset-password?email={user.Email}&token={Uri.EscapeDataString(user.EmailConfirmationToken)}";
             await _emailSender.SendEmailAsync(user.Email, "Reset mật khẩu", link);
         }
 
