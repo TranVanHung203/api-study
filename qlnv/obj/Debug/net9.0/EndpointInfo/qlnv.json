@@ -968,6 +968,12 @@
           },
           "isActive": {
             "type": "boolean"
+          },
+          "excludeSaturday": {
+            "type": "boolean"
+          },
+          "excludeSunday": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -982,6 +988,10 @@
             "minLength": 1,
             "type": "string",
             "format": "email"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1174,6 +1184,12 @@
           },
           "isActive": {
             "type": "boolean"
+          },
+          "excludeSaturday": {
+            "type": "boolean"
+          },
+          "excludeSunday": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -1193,6 +1209,10 @@
             "minLength": 1,
             "type": "string",
             "format": "email"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false

@@ -16,7 +16,7 @@ dotnet add reference ../Contracts/Contracts.csproj
 dotnet add reference ../Repository/Repository.csproj
 dotnet add reference ../Service/Service.csproj
 -------------------------
-
+$2y$10$6v9RWkTeIhrTYmgb3/eJ4ex.pShQLrWOhZbS48FoYVn0f0ZYqxfXy
 Màn hình chỉnh sửa mặc định:
 Khi mở trang “Cấu hình thông báo” mặc định gọi GET /api/CauHinhThongBao/active để load bản đang dùng.
 Có nút “Xem lịch sử” hoặc dropdown “Chọn cấu hình” gọi GET /api/CauHinhThongBao để hiển thị danh sách (Id, SoNgayThongBao, DanhSachNamThongBao, IsActive) — user có thể chọn 1 dòng để edit.

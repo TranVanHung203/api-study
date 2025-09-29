@@ -17,7 +17,8 @@ namespace Service
         {
             var entity = new EmailThongBao
             {
-                Email = dto.Email
+                Email = dto.Email,
+                Name = dto.Name
             };
 
             var created = await _repo.CreateAsync(entity);
@@ -25,7 +26,8 @@ namespace Service
             return new EmailThongBaoDto
             {
                 Id = created.Id,
-                Email = created.Email
+                Email = created.Email,
+                Name = created.Name
             };
         }
 
@@ -37,7 +39,8 @@ namespace Service
             return new EmailThongBaoDto
             {
                 Id = entity.Id,
-                Email = entity.Email
+                Email = entity.Email,
+                Name = entity.Name
             };
         }
 
@@ -54,7 +57,8 @@ namespace Service
                 Items = paged.Items.Select(e => new EmailThongBaoDto
                 {
                     Id = e.Id,
-                    Email = e.Email
+                    Email = e.Email,
+                    Name = e.Name
                 })
             };
         }
@@ -66,13 +70,15 @@ namespace Service
                 throw new KeyNotFoundException("Không tìm thấy Email thông báo.");
 
             entity.Email = dto.Email;
+            entity.Name = dto.Name;
 
             await _repo.UpdateAsync(entity);
 
             return new EmailThongBaoDto
             {
                 Id = entity.Id,
-                Email = entity.Email
+                Email = entity.Email,
+                Name = entity.Name
             };
         }
 

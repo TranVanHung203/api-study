@@ -11,5 +11,11 @@
         
         // mark this configuration as the active one used by the system
         public bool IsActive { get; set; } = false;
+        
+        // If true, Saturdays are considered non-working days (i.e., excluded from working days count)
+        public bool ExcludeSaturday { get; set; } = true;
+
+        // If true, Sundays are considered non-working days (i.e., excluded from working days count)
+        public bool ExcludeSunday { get; set; } = true;
     }
 }

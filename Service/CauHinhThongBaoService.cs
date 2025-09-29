@@ -39,6 +39,9 @@ namespace Service
                 SoNgayThongBao = c.SoNgayThongBao,
                 DanhSachNamThongBao = c.DanhSachNamThongBao,
                 IsActive = c.IsActive
+                ,
+                ExcludeSaturday = c.ExcludeSaturday,
+                ExcludeSunday = c.ExcludeSunday
             }).ToList();
         }
 
@@ -46,7 +49,7 @@ namespace Service
         {
             var c = await _cfgRepo.GetByIdAsync(id);
             if (c == null) return null;
-            return new CauHinhThongBaoDto { Id = c.Id, SoNgayThongBao = c.SoNgayThongBao, DanhSachNamThongBao = c.DanhSachNamThongBao, IsActive = c.IsActive };
+            return new CauHinhThongBaoDto { Id = c.Id, SoNgayThongBao = c.SoNgayThongBao, DanhSachNamThongBao = c.DanhSachNamThongBao, IsActive = c.IsActive, ExcludeSaturday = c.ExcludeSaturday, ExcludeSunday = c.ExcludeSunday };
         }
 
         public async Task<CauHinhThongBaoDto?> ActivateConfigAsync(int id)
@@ -66,14 +69,14 @@ namespace Service
             var all = await _cfgRepo.GetAllAsync();
             var active = all.FirstOrDefault(c => c.IsActive);
             if (active == null) return null;
-            return new CauHinhThongBaoDto { Id = active.Id, SoNgayThongBao = active.SoNgayThongBao, DanhSachNamThongBao = active.DanhSachNamThongBao, IsActive = active.IsActive };
+            return new CauHinhThongBaoDto { Id = active.Id, SoNgayThongBao = active.SoNgayThongBao, DanhSachNamThongBao = active.DanhSachNamThongBao, IsActive = active.IsActive, ExcludeSaturday = active.ExcludeSaturday, ExcludeSunday = active.ExcludeSunday };
         }
 
         public async Task<CauHinhThongBaoDto?> GetConfigAsync()
         {
             var cfg = await _cfgRepo.GetAsync();
             if (cfg == null) return null;
-            return new CauHinhThongBaoDto { Id = cfg.Id, SoNgayThongBao = cfg.SoNgayThongBao };
+            return new CauHinhThongBaoDto { Id = cfg.Id, SoNgayThongBao = cfg.SoNgayThongBao, ExcludeSaturday = cfg.ExcludeSaturday, ExcludeSunday = cfg.ExcludeSunday };
         }
 
         public async Task<CauHinhThongBaoDto> CreateConfigAsync(CreateCauHinhThongBaoDto dto)
@@ -84,10 +87,13 @@ namespace Service
                 DanhSachNamThongBao = dto.DanhSachNamThongBao
                 ,
                 IsActive = dto.IsActive
+                ,
+                ExcludeSaturday = dto.ExcludeSaturday,
+                ExcludeSunday = dto.ExcludeSunday
             };
 
             var created = await _cfgRepo.CreateAsync(cfg);
-            return new CauHinhThongBaoDto { Id = created.Id, SoNgayThongBao = created.SoNgayThongBao, DanhSachNamThongBao = created.DanhSachNamThongBao, IsActive = created.IsActive };
+            return new CauHinhThongBaoDto { Id = created.Id, SoNgayThongBao = created.SoNgayThongBao, DanhSachNamThongBao = created.DanhSachNamThongBao, IsActive = created.IsActive, ExcludeSaturday = created.ExcludeSaturday, ExcludeSunday = created.ExcludeSunday };
         }
 
         public async Task<CauHinhThongBaoDto> UpdateConfigAsync(UpdateCauHinhThongBaoDto dto)
@@ -95,17 +101,19 @@ namespace Service
             var cfg = await _cfgRepo.GetAsync();
             if (cfg == null)
             {
-                cfg = new CauHinhThongBao { SoNgayThongBao = dto.SoNgayThongBao, DanhSachNamThongBao = dto.DanhSachNamThongBao, IsActive = dto.IsActive };
+                cfg = new CauHinhThongBao { SoNgayThongBao = dto.SoNgayThongBao, DanhSachNamThongBao = dto.DanhSachNamThongBao, IsActive = dto.IsActive, ExcludeSaturday = dto.ExcludeSaturday, ExcludeSunday = dto.ExcludeSunday };
                 var created = await _cfgRepo.CreateAsync(cfg);
-                return new CauHinhThongBaoDto { Id = created.Id, SoNgayThongBao = created.SoNgayThongBao, DanhSachNamThongBao = created.DanhSachNamThongBao, IsActive = created.IsActive };
+                return new CauHinhThongBaoDto { Id = created.Id, SoNgayThongBao = created.SoNgayThongBao, DanhSachNamThongBao = created.DanhSachNamThongBao, IsActive = created.IsActive, ExcludeSaturday = created.ExcludeSaturday, ExcludeSunday = created.ExcludeSunday };
             }
 
             cfg.SoNgayThongBao = dto.SoNgayThongBao;
             cfg.DanhSachNamThongBao = dto.DanhSachNamThongBao;
             cfg.IsActive = dto.IsActive;
+            cfg.ExcludeSaturday = dto.ExcludeSaturday;
+            cfg.ExcludeSunday = dto.ExcludeSunday;
             await _cfgRepo.UpdateAsync(cfg);
 
-            return new CauHinhThongBaoDto { Id = cfg.Id, SoNgayThongBao = cfg.SoNgayThongBao, DanhSachNamThongBao = cfg.DanhSachNamThongBao, IsActive = cfg.IsActive };
+            return new CauHinhThongBaoDto { Id = cfg.Id, SoNgayThongBao = cfg.SoNgayThongBao, DanhSachNamThongBao = cfg.DanhSachNamThongBao, IsActive = cfg.IsActive, ExcludeSaturday = cfg.ExcludeSaturday, ExcludeSunday = cfg.ExcludeSunday };
         }
         public async Task DeleteConfigAsync(int id)
         {
@@ -175,11 +183,10 @@ namespace Service
                         anniversaryHandled = true;
                     }
 
-
                     if (anniversaryHandled) continue;
 
                     // Probation logic: measure working days (exclude Saturdays and holidays)
-                    var workingDays = CountWorkingDays(join, utcNow, holidays);
+                    var workingDays = CountWorkingDays(join, utcNow, holidays, cfg?.ExcludeSaturday ?? true, cfg?.ExcludeSunday ?? true);
                     if (workingDays >= soNgay)
                     {
                         var reason = $"Đã đủ {soNgay} ngày làm việc (thử việc)";
@@ -196,26 +203,90 @@ namespace Service
             // Send emails and log
             if (!toNotify.Any()) return 0;
 
+            // Define the HTML email template with inline CSS and logo
+            var template = @"
+<!DOCTYPE html>
+<html lang=""en"">
+<head>
+    <meta charset=""UTF-8"">
+    <meta name=""viewport"" content=""width=device-width, initial-scale=1.0"">
+    <title>Báo cáo thông báo nhân sự</title>
+</head>
+<body style=""margin: 0; padding: 0; background-color: #f4f4f4; font-family: Arial, Helvetica, sans-serif;"">
+    <table role=""presentation"" style=""width: 100%; max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"">
+        <tr>
+            <td style=""padding: 20px; text-align: center; background-color: #1e3a8a; border-top-left-radius: 8px; border-top-right-radius: 8px;"">
+                <img src=""https://atpro.com.vn/wp-content/uploads/2020/10/logo-cong-ty-1024x342-1024x342.png"" alt=""Company Logo"" style=""max-width: 150px; height: auto; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto;"">
+                <h1 style=""color: #ffffff; font-size: 24px; margin: 0;"">Báo cáo thông báo nhân sự</h1>
+                <p style=""color: #e5e7eb; font-size: 14px; margin: 5px 0;"">Ngày gửi: {0:dd/MM/yyyy}</p>
+            </td>
+        </tr>
+        <tr>
+            <td style=""padding: 20px;"">
+                <table role=""presentation"" style=""width: 100%; border-collapse: collapse;"">
+                    <thead>
+                        <tr style=""background-color: #3b82f6; color: #ffffff;"">
+                            <th style=""padding: 12px; text-align: left; font-size: 14px; border: 1px solid #d1d5db;"">Id</th>
+                            <th style=""padding: 12px; text-align: left; font-size: 14px; border: 1px solid #d1d5db;"">Họ tên</th>
+                            <th style=""padding: 12px; text-align: left; font-size: 14px; border: 1px solid #d1d5db;"">Email NV</th>
+                            <th style=""padding: 12px; text-align: left; font-size: 14px; border: 1px solid #d1d5db;"">Lý do</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {1}
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td style=""padding: 20px; text-align: center; background-color: #f9fafb; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;"">
+                <p style=""color: #4b5563; font-size: 12px; margin: 0;"">Đây là email tự động từ hệ thống nhân sự. Vui lòng không trả lời trực tiếp email này.</p>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>";
+
+            // Generate table rows with alternating background colors
             var sb = new System.Text.StringBuilder();
-            sb.AppendLine("<h3>Danh sách nhân viên cần thông báo</h3>");
-            sb.AppendLine("<table border=1 cellpadding=5 cellspacing=0>");
-            sb.AppendLine("<tr><th>Id</th><th>Họ tên</th><th>Email NV</th><th>Lý do</th></tr>");
-
             var nvMap = employees.ToDictionary(e => e.Id);
-            foreach (var item in toNotify)
-            {
-                nvMap.TryGetValue(item.NhanVienId, out var emp);
-                var name = emp?.Ten ?? "-";
-                var emailNv = item.Email ?? "-";
-                sb.AppendLine($"<tr><td>{item.NhanVienId}</td><td>{System.Net.WebUtility.HtmlEncode(name)}</td><td>{System.Net.WebUtility.HtmlEncode(emailNv)}</td><td>{System.Net.WebUtility.HtmlEncode(item.Reason)}</td></tr>");
-            }
-
-            sb.AppendLine("</table>");
-
-            var htmlBody = sb.ToString();
-
+            int rowIndex = 0;
             var cfgEmailsPaged = await _emailThongBaoRepo.GetPagedAsync(1, int.MaxValue);
             var recipients = cfgEmailsPaged.Items.Select(e => e.Email).Where(s => !string.IsNullOrWhiteSpace(s)).ToList();
+            // Tạo một danh sách để theo dõi các nhân viên đã được gửi thông báo
+            var notifiedEmployees = new HashSet<int>();
+
+            foreach (var to in recipients)
+            {
+                foreach (var item in toNotify)
+                {
+                    // Kiểm tra xem nhân viên này đã được thêm vào bảng chưa
+                    if (notifiedEmployees.Contains(item.NhanVienId))
+                    {
+                        continue; // Bỏ qua nếu nhân viên đã được thêm
+                    }
+
+                    // Kiểm tra xem thông báo đã được gửi cho nhân viên này với lý do và recipient cụ thể chưa
+                    var alreadySentForRecipient = await _thongBaoRepo.ExistsForNhanVienWithReasonAsync(item.NhanVienId, item.Reason, to);
+                    if (!alreadySentForRecipient)
+                    {
+                        // Nếu chưa gửi, thêm vào bảng
+                        nvMap.TryGetValue(item.NhanVienId, out var emp);
+                        var name = emp?.Ten ?? "-";
+                        var emailNv = item.Email ?? "-";
+                        var rowStyle = rowIndex % 2 == 0 ? "background-color: #f9fafb;" : "";
+                        sb.AppendLine($"<tr style=\"{rowStyle}\"><td style=\"padding: 12px; border: 1px solid #d1d5db;\">{item.NhanVienId}</td><td style=\"padding: 12px; border: 1px solid #d1d5db;\">{System.Net.WebUtility.HtmlEncode(name)}</td><td style=\"padding: 12px; border: 1px solid #d1d5db;\">{System.Net.WebUtility.HtmlEncode(emailNv)}</td><td style=\"padding: 12px; border: 1px solid #d1d5db;\">{System.Net.WebUtility.HtmlEncode(item.Reason)}</td></tr>");
+                        rowIndex++;
+                        // Đánh dấu nhân viên này đã được thêm vào bảng
+                        notifiedEmployees.Add(item.NhanVienId);
+                    }
+                }
+            }
+
+            // Format the HTML body with the current date and table rows
+            var htmlBody = string.Format(template, DateTime.UtcNow, sb.ToString());
+
+           
 
             if (!recipients.Any())
             {
@@ -231,14 +302,34 @@ namespace Service
                 ws.Cell(1, 3).Value = "EmailNV";
                 ws.Cell(1, 4).Value = "LyDo";
                 int r = 2;
-                foreach (var item in toNotify)
+                // Tạo một HashSet để theo dõi các nhân viên đã được thêm vào bảng
+                var addedEmployees = new HashSet<int>();
+
+                foreach (var to in recipients)
                 {
-                    var emp = employees.FirstOrDefault(e => e.Id == item.NhanVienId);
-                    ws.Cell(r, 1).Value = item.NhanVienId;
-                    ws.Cell(r, 2).Value = emp?.Ten ?? "-";
-                    ws.Cell(r, 3).Value = item.Email ?? "-";
-                    ws.Cell(r, 4).Value = item.Reason;
-                    r++;
+                    foreach (var item in toNotify)
+                    {
+                        // Kiểm tra xem nhân viên này đã được thêm vào bảng chưa
+                        if (addedEmployees.Contains(item.NhanVienId))
+                        {
+                            continue; // Bỏ qua nếu nhân viên đã được thêm
+                        }
+
+                        // Kiểm tra xem thông báo đã được gửi cho nhân viên này với lý do và recipient cụ thể chưa
+                        var alreadySentForRecipient = await _thongBaoRepo.ExistsForNhanVienWithReasonAsync(item.NhanVienId, item.Reason, to);
+                        if (!alreadySentForRecipient)
+                        {
+                            // Nếu chưa gửi, thêm vào bảng
+                            var emp = employees.FirstOrDefault(e => e.Id == item.NhanVienId);
+                            ws.Cell(r, 1).Value = item.NhanVienId;
+                            ws.Cell(r, 2).Value = emp?.Ten ?? "-";
+                            ws.Cell(r, 3).Value = item.Email ?? "-";
+                            ws.Cell(r, 4).Value = item.Reason;
+                            r++;
+                            // Đánh dấu nhân viên này đã được thêm vào bảng
+                            addedEmployees.Add(item.NhanVienId);
+                        }
+                    }
                 }
 
                 ws.Columns().AdjustToContents();
@@ -271,7 +362,7 @@ namespace Service
 
                     if (!itemsForThisRecipient.Any()) continue;
 
-                    // Build per-recipient HTML/body (we reuse same htmlBody/excel for simplicity)
+                    // Send email with the formatted HTML body
                     await _emailSender.SendEmailAsync(to, subject, htmlBody, attachments);
 
                     foreach (var item in itemsForThisRecipient)
@@ -294,15 +385,15 @@ namespace Service
 
             return sent;
         }
-
-        private int CountWorkingDays(DateTime startDate, DateTime endDate, HashSet<DateTime> holidays)
+        private int CountWorkingDays(DateTime startDate, DateTime endDate, HashSet<DateTime> holidays, bool excludeSaturday, bool excludeSunday)
         {
             if (endDate <= startDate) return 0; // chưa qua ngày nào thì = 0
 
             int count = 0;
             for (var d = startDate.Date.AddDays(1); d <= endDate.Date; d = d.AddDays(1))
             {
-                if (d.DayOfWeek == DayOfWeek.Saturday || d.DayOfWeek == DayOfWeek.Sunday) continue;
+                if (d.DayOfWeek == DayOfWeek.Saturday && excludeSaturday) continue;
+                if (d.DayOfWeek == DayOfWeek.Sunday && excludeSunday) continue;
                 if (holidays.Contains(d.Date)) continue;
                 count++;
             }

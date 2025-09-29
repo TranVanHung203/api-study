@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "F:\\ATPro\\.Net Web\\qlnv\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E8E4F2B5-8074-4F34-8843-38B65D46BC52}|qlnv\\qlnv.csproj|f:\\atpro\\.net web\\qlnv\\qlnv\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{E8E4F2B5-8074-4F34-8843-38B65D46BC52}|qlnv\\qlnv.csproj|solutionrelative:qlnv\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{516CDDBB-9FCF-4089-9E97-98923FF47CA5}|Service\\Service.csproj|f:\\atpro\\.net web\\qlnv\\service\\cauhinhthongbaoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{516CDDBB-9FCF-4089-9E97-98923FF47CA5}|Service\\Service.csproj|solutionrelative:service\\cauhinhthongbaoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45283E88-504E-4629-ADEA-3EEF07D7848D}|qlnv.Presentation\\qlnv.Presentation.csproj|f:\\atpro\\.net web\\qlnv\\qlnv.presentation\\controllers\\cauhinhthongbaocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45283E88-504E-4629-ADEA-3EEF07D7848D}|qlnv.Presentation\\qlnv.Presentation.csproj|solutionrelative:qlnv.presentation\\controllers\\cauhinhthongbaocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E8E4F2B5-8074-4F34-8843-38B65D46BC52}|qlnv\\qlnv.csproj|f:\\atpro\\.net web\\qlnv\\qlnv\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E8E4F2B5-8074-4F34-8843-38B65D46BC52}|qlnv\\qlnv.csproj|solutionrelative:qlnv\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E8E4F2B5-8074-4F34-8843-38B65D46BC52}|qlnv\\qlnv.csproj|f:\\atpro\\.net web\\qlnv\\qlnv\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{E8E4F2B5-8074-4F34-8843-38B65D46BC52}|qlnv\\qlnv.csproj|solutionrelative:qlnv\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{516CDDBB-9FCF-4089-9E97-98923FF47CA5}|Service\\Service.csproj|f:\\atpro\\.net web\\qlnv\\service\\cauhinhthongbaoscheduledservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -18,16 +26,8 @@
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\ATPro\\.Net Web\\qlnv-client\\dist\\qlnv-client\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E8E4F2B5-8074-4F34-8843-38B65D46BC52}|qlnv\\qlnv.csproj|f:\\atpro\\.net web\\qlnv\\qlnv\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E8E4F2B5-8074-4F34-8843-38B65D46BC52}|qlnv\\qlnv.csproj|solutionrelative:qlnv\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E8E4F2B5-8074-4F34-8843-38B65D46BC52}|qlnv\\qlnv.csproj|f:\\atpro\\.net web\\qlnv\\qlnv\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{E8E4F2B5-8074-4F34-8843-38B65D46BC52}|qlnv\\qlnv.csproj|solutionrelative:qlnv\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{45283E88-504E-4629-ADEA-3EEF07D7848D}|qlnv.Presentation\\qlnv.Presentation.csproj|f:\\atpro\\.net web\\qlnv\\qlnv.presentation\\controllers\\cauhinhthongbaocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{45283E88-504E-4629-ADEA-3EEF07D7848D}|qlnv.Presentation\\qlnv.Presentation.csproj|solutionrelative:qlnv.presentation\\controllers\\cauhinhthongbaocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{21A8A8B0-4A35-4342-BC61-D37F5C568528}|Repository\\Repository.csproj|f:\\atpro\\.net web\\qlnv\\repository\\thongbaorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -237,7 +237,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -245,31 +245,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\qlnv\\Program.cs",
-              "RelativeDocumentMoniker": "qlnv\\Program.cs",
-              "ToolTip": "F:\\ATPro\\.Net Web\\qlnv\\qlnv\\Program.cs",
-              "RelativeToolTip": "qlnv\\Program.cs",
-              "ViewState": "AgIAAI0AAAAAAAAAAAAQwKkAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T07:42:34.404Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CauHinhThongBaoScheduledService.cs",
-              "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Service\\CauHinhThongBaoScheduledService.cs",
-              "RelativeDocumentMoniker": "Service\\CauHinhThongBaoScheduledService.cs",
-              "ToolTip": "F:\\ATPro\\.Net Web\\qlnv\\Service\\CauHinhThongBaoScheduledService.cs",
-              "RelativeToolTip": "Service\\CauHinhThongBaoScheduledService.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAYwB4AAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T04:43:09.987Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "launchSettings.json",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\qlnv\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "qlnv\\Properties\\launchSettings.json",
@@ -281,20 +257,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "CauHinhThongBaoService.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Service\\CauHinhThongBaoService.cs",
               "RelativeDocumentMoniker": "Service\\CauHinhThongBaoService.cs",
               "ToolTip": "F:\\ATPro\\.Net Web\\qlnv\\Service\\CauHinhThongBaoService.cs",
               "RelativeToolTip": "Service\\CauHinhThongBaoService.cs",
-              "ViewState": "AgIAAOsAAAAAAAAAAAAQwHYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAHUAAAAAAAAAAAA3wIEAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-23T01:40:22.277Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "appsettings.json",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\qlnv\\appsettings.json",
               "RelativeDocumentMoniker": "qlnv\\appsettings.json",
@@ -302,12 +278,49 @@
               "RelativeToolTip": "qlnv\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-09-20T07:39:45.779Z",
+              "WhenOpened": "2025-09-20T07:39:45.779Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CauHinhThongBaoController.cs",
+              "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\qlnv.Presentation\\Controllers\\CauHinhThongBaoController.cs",
+              "RelativeDocumentMoniker": "qlnv.Presentation\\Controllers\\CauHinhThongBaoController.cs",
+              "ToolTip": "F:\\ATPro\\.Net Web\\qlnv\\qlnv.Presentation\\Controllers\\CauHinhThongBaoController.cs",
+              "RelativeToolTip": "qlnv.Presentation\\Controllers\\CauHinhThongBaoController.cs",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAkwIIAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-23T01:39:31.617Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
+              "Title": "CauHinhThongBaoScheduledService.cs",
+              "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Service\\CauHinhThongBaoScheduledService.cs",
+              "RelativeDocumentMoniker": "Service\\CauHinhThongBaoScheduledService.cs",
+              "ToolTip": "F:\\ATPro\\.Net Web\\qlnv\\Service\\CauHinhThongBaoScheduledService.cs",
+              "RelativeToolTip": "Service\\CauHinhThongBaoScheduledService.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAYwB4AAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-24T04:43:09.987Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\qlnv\\Program.cs",
+              "RelativeDocumentMoniker": "qlnv\\Program.cs",
+              "ToolTip": "F:\\ATPro\\.Net Web\\qlnv\\qlnv\\Program.cs",
+              "RelativeToolTip": "qlnv\\Program.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAAACkAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-20T07:42:34.404Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "web.config",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv-client\\dist\\qlnv-client\\web.config",
               "RelativeDocumentMoniker": "..\\qlnv-client\\dist\\qlnv-client\\web.config",
@@ -316,18 +329,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
               "WhenOpened": "2025-09-25T09:53:54.925Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "CauHinhThongBaoController.cs",
-              "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\qlnv.Presentation\\Controllers\\CauHinhThongBaoController.cs",
-              "RelativeDocumentMoniker": "qlnv.Presentation\\Controllers\\CauHinhThongBaoController.cs",
-              "ToolTip": "F:\\ATPro\\.Net Web\\qlnv\\qlnv.Presentation\\Controllers\\CauHinhThongBaoController.cs",
-              "RelativeToolTip": "qlnv.Presentation\\Controllers\\CauHinhThongBaoController.cs",
-              "ViewState": "AgIAAG8AAAAAAAAAAAAkwIIAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T01:39:31.617Z"
             },
             {
               "$type": "Document",

@@ -43,7 +43,7 @@ namespace Repository
             if (!string.IsNullOrWhiteSpace(email))
             {
                 var keyword = email.Trim().ToLower();
-                query = query.Where(e => e.Email.ToLower().Contains(keyword));
+                query = query.Where(e => e.Email.ToLower().Contains(keyword) || (e.Name != null && e.Name.ToLower().Contains(keyword)));
             }
 
             query = query.OrderBy(e => e.Id);

@@ -33,6 +33,12 @@ namespace Repository.Migrations
                     b.Property<string>("DanhSachNamThongBao")
                         .HasColumnType("longtext");
 
+                    b.Property<bool>("ExcludeSaturday")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<bool>("ExcludeSunday")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<bool>("IsActive")
                         .HasColumnType("tinyint(1)");
 
@@ -54,6 +60,9 @@ namespace Repository.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Name")
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
