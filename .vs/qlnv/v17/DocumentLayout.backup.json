@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "F:\\ATPro\\.Net Web\\qlnv\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{516CDDBB-9FCF-4089-9E97-98923FF47CA5}|Service\\Service.csproj|f:\\atpro\\.net web\\qlnv\\service\\cauhinhthongbaoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{516CDDBB-9FCF-4089-9E97-98923FF47CA5}|Service\\Service.csproj|solutionrelative:service\\cauhinhthongbaoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E8E4F2B5-8074-4F34-8843-38B65D46BC52}|qlnv\\qlnv.csproj|f:\\atpro\\.net web\\qlnv\\qlnv\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E8E4F2B5-8074-4F34-8843-38B65D46BC52}|qlnv\\qlnv.csproj|solutionrelative:qlnv\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -13,10 +17,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{45283E88-504E-4629-ADEA-3EEF07D7848D}|qlnv.Presentation\\qlnv.Presentation.csproj|f:\\atpro\\.net web\\qlnv\\qlnv.presentation\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{45283E88-504E-4629-ADEA-3EEF07D7848D}|qlnv.Presentation\\qlnv.Presentation.csproj|solutionrelative:qlnv.presentation\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{516CDDBB-9FCF-4089-9E97-98923FF47CA5}|Service\\Service.csproj|f:\\atpro\\.net web\\qlnv\\service\\cauhinhthongbaoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{516CDDBB-9FCF-4089-9E97-98923FF47CA5}|Service\\Service.csproj|solutionrelative:service\\cauhinhthongbaoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{45283E88-504E-4629-ADEA-3EEF07D7848D}|qlnv.Presentation\\qlnv.Presentation.csproj|f:\\atpro\\.net web\\qlnv\\qlnv.presentation\\controllers\\cauhinhthongbaocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -237,7 +237,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -245,20 +245,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "CauHinhThongBaoService.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Service\\CauHinhThongBaoService.cs",
               "RelativeDocumentMoniker": "Service\\CauHinhThongBaoService.cs",
               "ToolTip": "F:\\ATPro\\.Net Web\\qlnv\\Service\\CauHinhThongBaoService.cs",
               "RelativeToolTip": "Service\\CauHinhThongBaoService.cs",
-              "ViewState": "AgIAAHMAAAAAAAAAAAAYwIEAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAPwAAAAAAAAAAAAkwAUBAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-23T01:40:22.277Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "AuthController.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\qlnv.Presentation\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "qlnv.Presentation\\Controllers\\AuthController.cs",
@@ -266,12 +266,11 @@
               "RelativeToolTip": "qlnv.Presentation\\Controllers\\AuthController.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAxwBgAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T07:49:32.25Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-20T07:49:32.25Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "AuthService.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Service\\AuthService.cs",
               "RelativeDocumentMoniker": "Service\\AuthService.cs",
@@ -279,18 +278,17 @@
               "RelativeToolTip": "Service\\AuthService.cs",
               "ViewState": "AgIAAD0AAAAAAAAAAAAAAFAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T07:51:30.895Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-20T07:51:30.895Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\qlnv\\Program.cs",
               "RelativeDocumentMoniker": "qlnv\\Program.cs",
               "ToolTip": "F:\\ATPro\\.Net Web\\qlnv\\qlnv\\Program.cs",
               "RelativeToolTip": "qlnv\\Program.cs",
-              "ViewState": "AgIAAIwAAAAAAAAAAAAAACkAAABPAAAAAAAAAA==",
+              "ViewState": "AgIAAIwAAAAAAAAAAAAAAJkAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-20T07:42:34.404Z",
               "EditorCaption": ""

@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+SQLAlchemy==1.4.46
+aiomysql
+alembic
+pydantic
+python-dotenv
+aiosmtplib
+Jinja2
+openpyxl
+httpx
+pytest
+python-multipart
+python-jose
+passlib[bcrypt]

@@ -254,31 +254,33 @@ namespace Service
             var cfgEmailsPaged = await _emailThongBaoRepo.GetPagedAsync(1, int.MaxValue);
             var recipients = cfgEmailsPaged.Items.Select(e => e.Email).Where(s => !string.IsNullOrWhiteSpace(s)).ToList();
             // Tạo một danh sách để theo dõi các nhân viên đã được gửi thông báo
-            var notifiedEmployees = new HashSet<int>();
+            var notifiedEmployees = new HashSet<(int NhanVienId, string Reason)>();
+
 
             foreach (var to in recipients)
             {
                 foreach (var item in toNotify)
                 {
-                    // Kiểm tra xem nhân viên này đã được thêm vào bảng chưa
-                    if (notifiedEmployees.Contains(item.NhanVienId))
+                    var key = (item.NhanVienId, (item.Reason ?? string.Empty).Trim());
+
+                    // Kiểm tra xem nhân viên này + lý do đã được thêm vào bảng chưa
+                    if (notifiedEmployees.Contains(key))
                     {
-                        continue; // Bỏ qua nếu nhân viên đã được thêm
+                        continue; // Bỏ qua nếu đã thêm cùng id + lý do trước đó
                     }
 
                     // Kiểm tra xem thông báo đã được gửi cho nhân viên này với lý do và recipient cụ thể chưa
                     var alreadySentForRecipient = await _thongBaoRepo.ExistsForNhanVienWithReasonAsync(item.NhanVienId, item.Reason, to);
                     if (!alreadySentForRecipient)
                     {
-                        // Nếu chưa gửi, thêm vào bảng
                         nvMap.TryGetValue(item.NhanVienId, out var emp);
                         var name = emp?.Ten ?? "-";
                         var emailNv = item.Email ?? "-";
                         var rowStyle = rowIndex % 2 == 0 ? "background-color: #f9fafb;" : "";
                         sb.AppendLine($"<tr style=\"{rowStyle}\"><td style=\"padding: 12px; border: 1px solid #d1d5db;\">{item.NhanVienId}</td><td style=\"padding: 12px; border: 1px solid #d1d5db;\">{System.Net.WebUtility.HtmlEncode(name)}</td><td style=\"padding: 12px; border: 1px solid #d1d5db;\">{System.Net.WebUtility.HtmlEncode(emailNv)}</td><td style=\"padding: 12px; border: 1px solid #d1d5db;\">{System.Net.WebUtility.HtmlEncode(item.Reason)}</td></tr>");
                         rowIndex++;
-                        // Đánh dấu nhân viên này đã được thêm vào bảng
-                        notifiedEmployees.Add(item.NhanVienId);
+                        // Đánh dấu đã thêm (id + lý do)
+                        notifiedEmployees.Add(key);
                     }
                 }
             }
@@ -303,31 +305,29 @@ namespace Service
                 ws.Cell(1, 4).Value = "LyDo";
                 int r = 2;
                 // Tạo một HashSet để theo dõi các nhân viên đã được thêm vào bảng
-                var addedEmployees = new HashSet<int>();
+                var addedEmployees = new HashSet<(int NhanVienId, string Reason)>();
 
                 foreach (var to in recipients)
                 {
                     foreach (var item in toNotify)
                     {
-                        // Kiểm tra xem nhân viên này đã được thêm vào bảng chưa
-                        if (addedEmployees.Contains(item.NhanVienId))
+                        var key = (item.NhanVienId, (item.Reason ?? string.Empty).Trim());
+
+                        if (addedEmployees.Contains(key))
                         {
-                            continue; // Bỏ qua nếu nhân viên đã được thêm
+                            continue;
                         }
 
-                        // Kiểm tra xem thông báo đã được gửi cho nhân viên này với lý do và recipient cụ thể chưa
                         var alreadySentForRecipient = await _thongBaoRepo.ExistsForNhanVienWithReasonAsync(item.NhanVienId, item.Reason, to);
                         if (!alreadySentForRecipient)
                         {
-                            // Nếu chưa gửi, thêm vào bảng
                             var emp = employees.FirstOrDefault(e => e.Id == item.NhanVienId);
                             ws.Cell(r, 1).Value = item.NhanVienId;
                             ws.Cell(r, 2).Value = emp?.Ten ?? "-";
                             ws.Cell(r, 3).Value = item.Email ?? "-";
                             ws.Cell(r, 4).Value = item.Reason;
                             r++;
-                            // Đánh dấu nhân viên này đã được thêm vào bảng
-                            addedEmployees.Add(item.NhanVienId);
+                            addedEmployees.Add(key);
                         }
                     }
                 }

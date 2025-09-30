@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      body { font-family: Arial, sans-serif; color: #333; }
+      .container { max-width: 600px; margin: 0 auto; padding: 16px; border: 1px solid #eaeaea; border-radius: 8px; }
+      .header { background: #0b5; padding: 8px; color: white; border-radius: 6px; }
+      .title { font-size: 18px; font-weight: bold; }
+      .content { margin-top: 12px; }
+      .footer { margin-top: 20px; font-size: 12px; color: #888; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="title">Thông báo từ hệ thống qlnv</div>
+      </div>
+      <div class="content">
+        <p>Xin chào <strong>{{ name or recipient }}</strong>,</p>
+        <p>{{ message_html | safe }}</p>
+      </div>
+      <div class="footer">
+        <p>Trân trọng,<br/>Đội ngũ qlnv</p>
+      </div>
+    </div>
+  </body>
+</html>

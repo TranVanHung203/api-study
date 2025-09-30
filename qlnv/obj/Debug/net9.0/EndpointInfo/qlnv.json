@@ -1297,6 +1297,11 @@
             "type": "string",
             "format": "uuid"
           },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "nullable": true
+          },
           "fullName": {
             "maxLength": 100,
             "minLength": 0,
