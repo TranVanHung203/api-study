@@ -2,7 +2,7 @@
   {
     "ContainingType": "qlnv.Presentation.Controllers.AuthController",
     "Method": "ForgotPassword",
-    "RelativePath": "api/Auth/forgot-password",
+    "RelativePath": "workpingapi/api/Auth/forgot-password",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -18,7 +18,7 @@
   {
     "ContainingType": "qlnv.Presentation.Controllers.AuthController",
     "Method": "Login",
-    "RelativePath": "api/Auth/login",
+    "RelativePath": "workpingapi/api/Auth/login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -34,7 +34,7 @@
   {
     "ContainingType": "qlnv.Presentation.Controllers.AuthController",
     "Method": "Refresh",
-    "RelativePath": "api/Auth/refresh",
+    "RelativePath": "workpingapi/api/Auth/refresh",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -50,7 +50,7 @@
   {
     "ContainingType": "qlnv.Presentation.Controllers.AuthController",
     "Method": "ResetPassword",
-    "RelativePath": "api/Auth/reset-password",
+    "RelativePath": "workpingapi/api/Auth/reset-password",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -66,7 +66,7 @@
   {
     "ContainingType": "qlnv.Presentation.Controllers.CauHinhThongBaoController",
     "Method": "Update",
-    "RelativePath": "api/CauHinhThongBao",
+    "RelativePath": "workpingapi/api/CauHinhThongBao",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -82,7 +82,7 @@
   {
     "ContainingType": "qlnv.Presentation.Controllers.CauHinhThongBaoController",
     "Method": "Create",
-    "RelativePath": "api/CauHinhThongBao",
+    "RelativePath": "workpingapi/api/CauHinhThongBao",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -98,7 +98,7 @@
   {
     "ContainingType": "qlnv.Presentation.Controllers.CauHinhThongBaoController",
     "Method": "GetById",
-    "RelativePath": "api/CauHinhThongBao/{id}",
+    "RelativePath": "workpingapi/api/CauHinhThongBao/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -114,7 +114,7 @@
   {
     "ContainingType": "qlnv.Presentation.Controllers.CauHinhThongBaoController",
     "Method": "Delete",
-    "RelativePath": "api/CauHinhThongBao/{id}",
+    "RelativePath": "workpingapi/api/CauHinhThongBao/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -130,7 +130,7 @@
   {
     "ContainingType": "qlnv.Presentation.Controllers.CauHinhThongBaoController",
     "Method": "Activate",
-    "RelativePath": "api/CauHinhThongBao/{id}/activate",
+    "RelativePath": "workpingapi/api/CauHinhThongBao/{id}/activate",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -146,7 +146,7 @@
   {
     "ContainingType": "qlnv.Presentation.Controllers.CauHinhThongBaoController",
     "Method": "GetActive",
-    "RelativePath": "api/CauHinhThongBao/active",
+    "RelativePath": "workpingapi/api/CauHinhThongBao/active",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -156,7 +156,7 @@
   {
     "ContainingType": "qlnv.Presentation.Controllers.CauHinhThongBaoController",
     "Method": "GetAll",
-    "RelativePath": "api/CauHinhThongBao/all",
+    "RelativePath": "workpingapi/api/CauHinhThongBao/all",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -166,7 +166,7 @@
   {
     "ContainingType": "qlnv.Presentation.Controllers.CauHinhThongBaoController",
     "Method": "Run",
-    "RelativePath": "api/CauHinhThongBao/run",
+    "RelativePath": "workpingapi/api/CauHinhThongBao/run",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -176,7 +176,7 @@
   {
     "ContainingType": "qlnv.Presentation.Controllers.EmailThongBaoController",
     "Method": "GetAll",
-    "RelativePath": "api/EmailThongBao",
+    "RelativePath": "workpingapi/api/EmailThongBao",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -202,7 +202,7 @@
   {
     "ContainingType": "qlnv.Presentation.Controllers.EmailThongBaoController",
     "Method": "Create",
-    "RelativePath": "api/EmailThongBao",
+    "RelativePath": "workpingapi/api/EmailThongBao",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -218,7 +218,7 @@
   {
     "ContainingType": "qlnv.Presentation.Controllers.EmailThongBaoController",
     "Method": "GetById",
-    "RelativePath": "api/EmailThongBao/{id}",
+    "RelativePath": "workpingapi/api/EmailThongBao/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -234,7 +234,7 @@
   {
     "ContainingType": "qlnv.Presentation.Controllers.EmailThongBaoController",
     "Method": "Update",
-    "RelativePath": "api/EmailThongBao/{id}",
+    "RelativePath": "workpingapi/api/EmailThongBao/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -255,7 +255,7 @@
   {
     "ContainingType": "qlnv.Presentation.Controllers.EmailThongBaoController",
     "Method": "Delete",
-    "RelativePath": "api/EmailThongBao/{id}",
+    "RelativePath": "workpingapi/api/EmailThongBao/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -271,7 +271,7 @@
   {
     "ContainingType": "qlnv.Presentation.Controllers.NgayLeController",
     "Method": "GetAll",
-    "RelativePath": "api/NgayLe",
+    "RelativePath": "workpingapi/api/NgayLe",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -297,7 +297,7 @@
   {
     "ContainingType": "qlnv.Presentation.Controllers.NgayLeController",
     "Method": "Create",
-    "RelativePath": "api/NgayLe",
+    "RelativePath": "workpingapi/api/NgayLe",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -313,7 +313,7 @@
   {
     "ContainingType": "qlnv.Presentation.Controllers.NgayLeController",
     "Method": "GetById",
-    "RelativePath": "api/NgayLe/{id}",
+    "RelativePath": "workpingapi/api/NgayLe/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -329,7 +329,7 @@
   {
     "ContainingType": "qlnv.Presentation.Controllers.NgayLeController",
     "Method": "Update",
-    "RelativePath": "api/NgayLe/{id}",
+    "RelativePath": "workpingapi/api/NgayLe/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -350,7 +350,7 @@
   {
     "ContainingType": "qlnv.Presentation.Controllers.NgayLeController",
     "Method": "Delete",
-    "RelativePath": "api/NgayLe/{id}",
+    "RelativePath": "workpingapi/api/NgayLe/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -366,7 +366,7 @@
   {
     "ContainingType": "qlnv.Presentation.Controllers.NhanVienController",
     "Method": "Create",
-    "RelativePath": "api/NhanVien",
+    "RelativePath": "workpingapi/api/NhanVien",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -382,7 +382,7 @@
   {
     "ContainingType": "qlnv.Presentation.Controllers.NhanVienController",
     "Method": "GetAll",
-    "RelativePath": "api/NhanVien",
+    "RelativePath": "workpingapi/api/NhanVien",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -408,7 +408,7 @@
   {
     "ContainingType": "qlnv.Presentation.Controllers.NhanVienController",
     "Method": "GetById",
-    "RelativePath": "api/NhanVien/{id}",
+    "RelativePath": "workpingapi/api/NhanVien/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -424,7 +424,7 @@
   {
     "ContainingType": "qlnv.Presentation.Controllers.NhanVienController",
     "Method": "Update",
-    "RelativePath": "api/NhanVien/{id}",
+    "RelativePath": "workpingapi/api/NhanVien/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -445,7 +445,7 @@
   {
     "ContainingType": "qlnv.Presentation.Controllers.NhanVienController",
     "Method": "Delete",
-    "RelativePath": "api/NhanVien/{id}",
+    "RelativePath": "workpingapi/api/NhanVien/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -461,7 +461,7 @@
   {
     "ContainingType": "qlnv.Presentation.Controllers.ThongBaoController",
     "Method": "Get",
-    "RelativePath": "api/ThongBao",
+    "RelativePath": "workpingapi/api/ThongBao",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -502,7 +502,7 @@
   {
     "ContainingType": "qlnv.Presentation.Controllers.UserController",
     "Method": "Create",
-    "RelativePath": "api/User",
+    "RelativePath": "workpingapi/api/User",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -518,7 +518,7 @@
   {
     "ContainingType": "qlnv.Presentation.Controllers.UserController",
     "Method": "GetAll",
-    "RelativePath": "api/User",
+    "RelativePath": "workpingapi/api/User",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -539,7 +539,7 @@
   {
     "ContainingType": "qlnv.Presentation.Controllers.UserController",
     "Method": "GetById",
-    "RelativePath": "api/User/{id}",
+    "RelativePath": "workpingapi/api/User/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -555,7 +555,7 @@
   {
     "ContainingType": "qlnv.Presentation.Controllers.UserController",
     "Method": "Update",
-    "RelativePath": "api/User/{id}",
+    "RelativePath": "workpingapi/api/User/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -576,7 +576,7 @@
   {
     "ContainingType": "qlnv.Presentation.Controllers.UserController",
     "Method": "Delete",
-    "RelativePath": "api/User/{id}",
+    "RelativePath": "workpingapi/api/User/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,

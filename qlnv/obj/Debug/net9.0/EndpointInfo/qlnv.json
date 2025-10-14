@@ -5,7 +5,7 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/Auth/login": {
+    "/workpingapi/api/Auth/login": {
       "post": {
         "tags": [
           "Auth"
@@ -36,7 +36,7 @@
         }
       }
     },
-    "/api/Auth/refresh": {
+    "/workpingapi/api/Auth/refresh": {
       "post": {
         "tags": [
           "Auth"
@@ -67,7 +67,7 @@
         }
       }
     },
-    "/api/Auth/forgot-password": {
+    "/workpingapi/api/Auth/forgot-password": {
       "post": {
         "tags": [
           "Auth"
@@ -98,7 +98,7 @@
         }
       }
     },
-    "/api/Auth/reset-password": {
+    "/workpingapi/api/Auth/reset-password": {
       "post": {
         "tags": [
           "Auth"
@@ -129,7 +129,7 @@
         }
       }
     },
-    "/api/CauHinhThongBao/active": {
+    "/workpingapi/api/CauHinhThongBao/active": {
       "get": {
         "tags": [
           "CauHinhThongBao"
@@ -141,7 +141,7 @@
         }
       }
     },
-    "/api/CauHinhThongBao/all": {
+    "/workpingapi/api/CauHinhThongBao/all": {
       "get": {
         "tags": [
           "CauHinhThongBao"
@@ -153,7 +153,7 @@
         }
       }
     },
-    "/api/CauHinhThongBao/{id}": {
+    "/workpingapi/api/CauHinhThongBao/{id}": {
       "get": {
         "tags": [
           "CauHinhThongBao"
@@ -197,7 +197,7 @@
         }
       }
     },
-    "/api/CauHinhThongBao/{id}/activate": {
+    "/workpingapi/api/CauHinhThongBao/{id}/activate": {
       "post": {
         "tags": [
           "CauHinhThongBao"
@@ -220,7 +220,7 @@
         }
       }
     },
-    "/api/CauHinhThongBao": {
+    "/workpingapi/api/CauHinhThongBao": {
       "put": {
         "tags": [
           "CauHinhThongBao"
@@ -280,7 +280,7 @@
         }
       }
     },
-    "/api/CauHinhThongBao/run": {
+    "/workpingapi/api/CauHinhThongBao/run": {
       "post": {
         "tags": [
           "CauHinhThongBao"
@@ -292,7 +292,7 @@
         }
       }
     },
-    "/api/EmailThongBao": {
+    "/workpingapi/api/EmailThongBao": {
       "get": {
         "tags": [
           "EmailThongBao"
@@ -360,7 +360,7 @@
         }
       }
     },
-    "/api/EmailThongBao/{id}": {
+    "/workpingapi/api/EmailThongBao/{id}": {
       "get": {
         "tags": [
           "EmailThongBao"
@@ -444,7 +444,7 @@
         }
       }
     },
-    "/api/NgayLe": {
+    "/workpingapi/api/NgayLe": {
       "get": {
         "tags": [
           "NgayLe"
@@ -512,7 +512,7 @@
         }
       }
     },
-    "/api/NgayLe/{id}": {
+    "/workpingapi/api/NgayLe/{id}": {
       "get": {
         "tags": [
           "NgayLe"
@@ -596,7 +596,7 @@
         }
       }
     },
-    "/api/NhanVien": {
+    "/workpingapi/api/NhanVien": {
       "post": {
         "tags": [
           "NhanVien"
@@ -662,7 +662,7 @@
         }
       }
     },
-    "/api/NhanVien/{id}": {
+    "/workpingapi/api/NhanVien/{id}": {
       "get": {
         "tags": [
           "NhanVien"
@@ -746,7 +746,7 @@
         }
       }
     },
-    "/api/ThongBao": {
+    "/workpingapi/api/ThongBao": {
       "get": {
         "tags": [
           "ThongBao"
@@ -807,7 +807,7 @@
         }
       }
     },
-    "/api/User": {
+    "/workpingapi/api/User": {
       "post": {
         "tags": [
           "User"
@@ -866,7 +866,7 @@
         }
       }
     },
-    "/api/User/{id}": {
+    "/workpingapi/api/User/{id}": {
       "get": {
         "tags": [
           "User"

@@ -39,7 +39,7 @@ builder.Services.AddScoped<Service.Contracts.IEmailThongBaoService, Service.Emai
 builder.Services.AddScoped<Service.Contracts.ICauHinhThongBaoService, Service.CauHinhThongBaoService>();
 builder.Services.AddScoped<Service.Contracts.IThongBaoService, Service.ThongBaoService>();
 // Register scheduled hosted service to run notifications daily at 08:00 local time
-//builder.Services.AddHostedService<Service.CauHinhThongBaoScheduledService>();
+builder.Services.AddHostedService<Service.CauHinhThongBaoScheduledService>();
 //Provide access to HttpContext for background services when necessary
 builder.Services.AddHttpContextAccessor();
 // Hosted background job removed: notifications will be triggered manually via controller
@@ -147,30 +147,27 @@ builder.Services.AddSwaggerGen(c =>
 });
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAngularClient",
-        policy =>
-        {
-            policy.WithOrigins(
-                    "http://192.168.1.140:8080",
-                    "http://localhost:4200"
-                )
-                .AllowAnyHeader()
-                .AllowAnyMethod();
-        });
+    options.AddPolicy("AllowAngularClient", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
 });
 
 
+
 var app = builder.Build();
+
 
 // Global exception handler (must be early)
 app.UseGlobalExceptionHandler();
 
 app.UseCors("AllowAngularClient");
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+
+app.UseSwagger();
+app.UseSwaggerUI();
+
 
 app.UseHttpsRedirection();
 app.UseAuthentication(); // phải trước UseAuthorization
