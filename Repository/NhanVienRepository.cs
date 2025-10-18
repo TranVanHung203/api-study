@@ -24,18 +24,20 @@ namespace Repository
         }
 
         public async Task<NhanVien?> GetByIdAsync(int id) =>
-            await _context.NhanViens.FirstOrDefaultAsync(n => n.Id == id && !n.IsDeleted);
+            await _context.NhanViens.FirstOrDefaultAsync(n => n.Id == id);
 
         public async Task<List<NhanVien>> GetAllAsync()
         {
             return await _context.NhanViens.AsNoTracking().Where(n => !n.IsDeleted).ToListAsync();
         }
 
-        public async Task<PagedResult<NhanVien>> GetPagedAsync(int page, int pageSize, string? ten = null, string? sdt = null)
+        public async Task<PagedResult<NhanVien>> GetPagedAsync(int page, int pageSize, string? ten = null, string? sdt = null, bool? isDeleted = null)
         {
-            var query = _context.NhanViens.AsNoTracking().Where(n => !n.IsDeleted);
+            var query = _context.NhanViens.AsNoTracking();
+            
             if (!string.IsNullOrWhiteSpace(ten)) query = query.Where(n => n.Ten.Contains(ten));
             if (!string.IsNullOrWhiteSpace(sdt)) query = query.Where(n => n.SoDienThoai.Contains(sdt));
+            if (isDeleted.HasValue) query = query.Where(n => n.IsDeleted == isDeleted.Value);
 
             var total = await query.CountAsync();
             var items = await query.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
@@ -59,6 +61,13 @@ namespace Repository
         public async Task DeleteAsync(NhanVien nhanVien)
         {
             nhanVien.IsDeleted = true;
+            _context.NhanViens.Update(nhanVien);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task RestoreAsync(NhanVien nhanVien)
+        {
+            nhanVien.IsDeleted = false;
             _context.NhanViens.Update(nhanVien);
             await _context.SaveChangesAsync();
         }

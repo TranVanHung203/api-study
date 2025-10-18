@@ -68,4 +68,22 @@ namespace Entities.DTOs
         [ValidRole]
         public string? Role { get; set; }
     }
+
+    public class ChangePasswordDto
+    {
+        [Required]
+        public Guid UserId { get; set; }
+
+        [Required]
+        [StringLength(100, MinimumLength = 6)]
+        public string CurrentPassword { get; set; } = string.Empty;
+
+        [Required]
+        [StringLength(100, MinimumLength = 6)]
+        public string NewPassword { get; set; } = string.Empty;
+
+        [Required]
+        [Compare("NewPassword", ErrorMessage = "Mật khẩu xác nhận không khớp")]
+        public string ConfirmNewPassword { get; set; } = string.Empty;
+    }
 }

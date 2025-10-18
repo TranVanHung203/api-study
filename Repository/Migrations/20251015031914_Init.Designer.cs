@@ -12,7 +12,7 @@ using Repository;
 namespace Repository.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20250927012216_Init")]
+    [Migration("20251015031914_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -46,6 +46,9 @@ namespace Repository.Migrations
                         .HasColumnType("tinyint(1)");
 
                     b.Property<int>("SoNgayThongBao")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SoNgayThongBaoTruoc")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -114,6 +117,12 @@ namespace Repository.Migrations
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTime?>("NgayLamViecChinhThuc")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("NgaySinh")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("NgayVaoLam")
                         .HasColumnType("datetime(6)");

@@ -45,6 +45,9 @@ namespace Repository.Migrations
                     b.Property<int>("SoNgayThongBao")
                         .HasColumnType("int");
 
+                    b.Property<int>("SoNgayThongBaoTruoc")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("CauHinhThongBao", (string)null);
@@ -111,6 +114,12 @@ namespace Repository.Migrations
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTime?>("NgayLamViecChinhThuc")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("NgaySinh")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("NgayVaoLam")
                         .HasColumnType("datetime(6)");

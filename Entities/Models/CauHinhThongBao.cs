@@ -17,5 +17,8 @@
 
         // If true, Sundays are considered non-working days (i.e., excluded from working days count)
         public bool ExcludeSunday { get; set; } = true;
+
+        // Số ngày thông báo trước khi đến kỷ niệm (mặc định 30 ngày = 1 tháng)
+        public int SoNgayThongBaoTruoc { get; set; } = 30;
     }
 }

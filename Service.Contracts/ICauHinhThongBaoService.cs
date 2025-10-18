@@ -17,5 +17,8 @@ namespace Service.Contracts
 
     // Run check and send notifications; returns number of emails sent
     Task<int> RunCheckAndSendAsync();
+    
+    // Run birthday check and send notifications; returns number of emails sent
+    Task<int> RunBirthdayCheckAndSendAsync();
     }
 }

@@ -38,10 +38,10 @@ namespace Service
                 Id = c.Id,
                 SoNgayThongBao = c.SoNgayThongBao,
                 DanhSachNamThongBao = c.DanhSachNamThongBao,
-                IsActive = c.IsActive
-                ,
+                IsActive = c.IsActive,
                 ExcludeSaturday = c.ExcludeSaturday,
-                ExcludeSunday = c.ExcludeSunday
+                ExcludeSunday = c.ExcludeSunday,
+                SoNgayThongBaoTruoc = c.SoNgayThongBaoTruoc
             }).ToList();
         }
 
@@ -49,7 +49,7 @@ namespace Service
         {
             var c = await _cfgRepo.GetByIdAsync(id);
             if (c == null) return null;
-            return new CauHinhThongBaoDto { Id = c.Id, SoNgayThongBao = c.SoNgayThongBao, DanhSachNamThongBao = c.DanhSachNamThongBao, IsActive = c.IsActive, ExcludeSaturday = c.ExcludeSaturday, ExcludeSunday = c.ExcludeSunday };
+            return new CauHinhThongBaoDto { Id = c.Id, SoNgayThongBao = c.SoNgayThongBao, DanhSachNamThongBao = c.DanhSachNamThongBao, IsActive = c.IsActive, ExcludeSaturday = c.ExcludeSaturday, ExcludeSunday = c.ExcludeSunday, SoNgayThongBaoTruoc = c.SoNgayThongBaoTruoc };
         }
 
         public async Task<CauHinhThongBaoDto?> ActivateConfigAsync(int id)
@@ -60,7 +60,7 @@ namespace Service
             cfg.IsActive = true;
             await _cfgRepo.UpdateAsync(cfg);
 
-            return new CauHinhThongBaoDto { Id = cfg.Id, SoNgayThongBao = cfg.SoNgayThongBao, DanhSachNamThongBao = cfg.DanhSachNamThongBao, IsActive = cfg.IsActive };
+            return new CauHinhThongBaoDto { Id = cfg.Id, SoNgayThongBao = cfg.SoNgayThongBao, DanhSachNamThongBao = cfg.DanhSachNamThongBao, IsActive = cfg.IsActive, ExcludeSaturday = cfg.ExcludeSaturday, ExcludeSunday = cfg.ExcludeSunday, SoNgayThongBaoTruoc = cfg.SoNgayThongBaoTruoc };
         }
 
         public async Task<CauHinhThongBaoDto?> GetActiveOnlyAsync()
@@ -69,14 +69,14 @@ namespace Service
             var all = await _cfgRepo.GetAllAsync();
             var active = all.FirstOrDefault(c => c.IsActive);
             if (active == null) return null;
-            return new CauHinhThongBaoDto { Id = active.Id, SoNgayThongBao = active.SoNgayThongBao, DanhSachNamThongBao = active.DanhSachNamThongBao, IsActive = active.IsActive, ExcludeSaturday = active.ExcludeSaturday, ExcludeSunday = active.ExcludeSunday };
+            return new CauHinhThongBaoDto { Id = active.Id, SoNgayThongBao = active.SoNgayThongBao, DanhSachNamThongBao = active.DanhSachNamThongBao, IsActive = active.IsActive, ExcludeSaturday = active.ExcludeSaturday, ExcludeSunday = active.ExcludeSunday, SoNgayThongBaoTruoc = active.SoNgayThongBaoTruoc };
         }
 
         public async Task<CauHinhThongBaoDto?> GetConfigAsync()
         {
             var cfg = await _cfgRepo.GetAsync();
             if (cfg == null) return null;
-            return new CauHinhThongBaoDto { Id = cfg.Id, SoNgayThongBao = cfg.SoNgayThongBao, ExcludeSaturday = cfg.ExcludeSaturday, ExcludeSunday = cfg.ExcludeSunday };
+            return new CauHinhThongBaoDto { Id = cfg.Id, SoNgayThongBao = cfg.SoNgayThongBao, DanhSachNamThongBao = cfg.DanhSachNamThongBao, IsActive = cfg.IsActive, ExcludeSaturday = cfg.ExcludeSaturday, ExcludeSunday = cfg.ExcludeSunday, SoNgayThongBaoTruoc = cfg.SoNgayThongBaoTruoc };
         }
 
         public async Task<CauHinhThongBaoDto> CreateConfigAsync(CreateCauHinhThongBaoDto dto)
@@ -84,16 +84,15 @@ namespace Service
             var cfg = new CauHinhThongBao
             {
                 SoNgayThongBao = dto.SoNgayThongBao,
-                DanhSachNamThongBao = dto.DanhSachNamThongBao
-                ,
-                IsActive = dto.IsActive
-                ,
+                DanhSachNamThongBao = dto.DanhSachNamThongBao,
+                IsActive = dto.IsActive,
                 ExcludeSaturday = dto.ExcludeSaturday,
-                ExcludeSunday = dto.ExcludeSunday
+                ExcludeSunday = dto.ExcludeSunday,
+                SoNgayThongBaoTruoc = dto.SoNgayThongBaoTruoc
             };
 
             var created = await _cfgRepo.CreateAsync(cfg);
-            return new CauHinhThongBaoDto { Id = created.Id, SoNgayThongBao = created.SoNgayThongBao, DanhSachNamThongBao = created.DanhSachNamThongBao, IsActive = created.IsActive, ExcludeSaturday = created.ExcludeSaturday, ExcludeSunday = created.ExcludeSunday };
+            return new CauHinhThongBaoDto { Id = created.Id, SoNgayThongBao = created.SoNgayThongBao, DanhSachNamThongBao = created.DanhSachNamThongBao, IsActive = created.IsActive, ExcludeSaturday = created.ExcludeSaturday, ExcludeSunday = created.ExcludeSunday, SoNgayThongBaoTruoc = created.SoNgayThongBaoTruoc };
         }
 
         public async Task<CauHinhThongBaoDto> UpdateConfigAsync(UpdateCauHinhThongBaoDto dto)
@@ -101,9 +100,9 @@ namespace Service
             var cfg = await _cfgRepo.GetAsync();
             if (cfg == null)
             {
-                cfg = new CauHinhThongBao { SoNgayThongBao = dto.SoNgayThongBao, DanhSachNamThongBao = dto.DanhSachNamThongBao, IsActive = dto.IsActive, ExcludeSaturday = dto.ExcludeSaturday, ExcludeSunday = dto.ExcludeSunday };
+                cfg = new CauHinhThongBao { SoNgayThongBao = dto.SoNgayThongBao, DanhSachNamThongBao = dto.DanhSachNamThongBao, IsActive = dto.IsActive, ExcludeSaturday = dto.ExcludeSaturday, ExcludeSunday = dto.ExcludeSunday, SoNgayThongBaoTruoc = dto.SoNgayThongBaoTruoc };
                 var created = await _cfgRepo.CreateAsync(cfg);
-                return new CauHinhThongBaoDto { Id = created.Id, SoNgayThongBao = created.SoNgayThongBao, DanhSachNamThongBao = created.DanhSachNamThongBao, IsActive = created.IsActive, ExcludeSaturday = created.ExcludeSaturday, ExcludeSunday = created.ExcludeSunday };
+                return new CauHinhThongBaoDto { Id = created.Id, SoNgayThongBao = created.SoNgayThongBao, DanhSachNamThongBao = created.DanhSachNamThongBao, IsActive = created.IsActive, ExcludeSaturday = created.ExcludeSaturday, ExcludeSunday = created.ExcludeSunday, SoNgayThongBaoTruoc = created.SoNgayThongBaoTruoc };
             }
 
             cfg.SoNgayThongBao = dto.SoNgayThongBao;
@@ -111,9 +110,10 @@ namespace Service
             cfg.IsActive = dto.IsActive;
             cfg.ExcludeSaturday = dto.ExcludeSaturday;
             cfg.ExcludeSunday = dto.ExcludeSunday;
+            cfg.SoNgayThongBaoTruoc = dto.SoNgayThongBaoTruoc;
             await _cfgRepo.UpdateAsync(cfg);
 
-            return new CauHinhThongBaoDto { Id = cfg.Id, SoNgayThongBao = cfg.SoNgayThongBao, DanhSachNamThongBao = cfg.DanhSachNamThongBao, IsActive = cfg.IsActive, ExcludeSaturday = cfg.ExcludeSaturday, ExcludeSunday = cfg.ExcludeSunday };
+            return new CauHinhThongBaoDto { Id = cfg.Id, SoNgayThongBao = cfg.SoNgayThongBao, DanhSachNamThongBao = cfg.DanhSachNamThongBao, IsActive = cfg.IsActive, ExcludeSaturday = cfg.ExcludeSaturday, ExcludeSunday = cfg.ExcludeSunday, SoNgayThongBaoTruoc = cfg.SoNgayThongBaoTruoc };
         }
         public async Task DeleteConfigAsync(int id)
         {
@@ -129,11 +129,12 @@ namespace Service
             // Load config
             var cfg = await _cfgRepo.GetAsync();
             int soNgay = cfg?.SoNgayThongBao ?? 60;
+            int soNgayThongBaoTruoc = cfg?.SoNgayThongBaoTruoc ?? 30;
 
             // Load employees
             var employees = await _nvRepo.GetAllAsync();
 
-            // Load holidays
+            // Load holidays (chỉ để loại trừ ngày lễ, không loại trừ cuối tuần)
             var holidaysPaged = await _ngayLeRepo.GetPagedAsync(1, int.MaxValue);
             var holidays = holidaysPaged.Items.SelectMany(n =>
                 Enumerable.Range(0, (int)(n.NgayKetThuc.Date - n.NgayBatDau.Date).TotalDays + 1)
@@ -149,12 +150,6 @@ namespace Service
                 {
                     if (string.IsNullOrWhiteSpace(nv.Email)) continue;
 
-                    //// Avoid sending if already sent today
-                    //var alreadySent = await _thongBaoRepo.ExistsForNhanVienOnDateAsync(nv.Id, utcNow);
-                    //if (alreadySent) continue;
-
-                    var join = nv.NgayVaoLam.Date;
-
                     // Anniversary years from config (e.g. "1,2,3")
                     var years = new List<int>();
                     if (!string.IsNullOrWhiteSpace(cfg?.DanhSachNamThongBao))
@@ -164,33 +159,46 @@ namespace Service
                             .Where(v => v > 0).ToList();
                     }
 
-                    // Check anniversary years
+                    // Check anniversary years - Sử dụng NgayLamViecChinhThuc thay vì NgayVaoLam
                     bool anniversaryHandled = false;
                     var reasons = new List<string>();
 
-                    foreach (var y in years)
+                    if (nv.NgayLamViecChinhThuc.HasValue)
                     {
-                        var anniversaryDate = join.AddYears(y);
-                        if (utcNow >= anniversaryDate)
+                        var officialDate = nv.NgayLamViecChinhThuc.Value.Date;
+                        
+                        foreach (var y in years)
                         {
-                            reasons.Add($"Kỷ niệm {y} năm làm việc");
+                            var anniversaryDate = officialDate.AddYears(y);
+                            var notificationDate = anniversaryDate.AddDays(-soNgayThongBaoTruoc);
+                            
+                            // Thông báo trước soNgayThongBaoTruoc ngày
+                            if (utcNow >= notificationDate && utcNow < anniversaryDate)
+                            {
+                                var daysLeft = (anniversaryDate - utcNow).Days;
+                                reasons.Add($"Sắp tới kỷ niệm {y} năm làm việc chính thức (còn {daysLeft} ngày)");
+                            }
+                            else if (soNgayThongBaoTruoc == 0 && utcNow == anniversaryDate)
+                            {
+                                reasons.Add($"Kỷ niệm {y} năm làm việc chính thức");
+                            }
                         }
-                    }
 
-                    foreach (var reason in reasons)
-                    {
-                        toNotify.Add((nv.Id, nv.Email, reason));
-                        anniversaryHandled = true;
+                        foreach (var reason in reasons)
+                        {
+                            toNotify.Add((nv.Id, nv.Email, reason));
+                            anniversaryHandled = true;
+                        }
                     }
 
                     if (anniversaryHandled) continue;
 
-                    // Probation logic: measure working days (exclude Saturdays and holidays)
-                    var workingDays = CountWorkingDays(join, utcNow, holidays, cfg?.ExcludeSaturday ?? true, cfg?.ExcludeSunday ?? true);
-                    if (workingDays >= soNgay)
+                    // Probation logic: Tính tổng số ngày (bao gồm cả cuối tuần, chỉ loại trừ ngày lễ)
+                    var join = nv.NgayVaoLam.Date;
+                    var totalDays = CountTotalDays(join, utcNow, holidays);
+                    if (totalDays >= soNgay)
                     {
                         var reason = $"Đã đủ {soNgay} ngày làm việc (thử việc)";
-                        // Tentatively add; final duplicate suppression will be done per recipient when sending
                         toNotify.Add((nv.Id, nv.Email, reason));
                     }
                 }
@@ -399,6 +407,168 @@ namespace Service
             }
 
             return count;
+        }
+
+        private int CountTotalDays(DateTime startDate, DateTime endDate, HashSet<DateTime> holidays)
+        {
+            if (endDate <= startDate) return 0; // chưa qua ngày nào thì = 0
+
+            int count = 0;
+            for (var d = startDate.Date.AddDays(1); d <= endDate.Date; d = d.AddDays(1))
+            {
+                // Chỉ loại trừ ngày lễ, không loại trừ cuối tuần
+                if (holidays.Contains(d.Date)) continue;
+                count++;
+            }
+
+            return count;
+        }
+
+        public async Task<int> RunBirthdayCheckAndSendAsync()
+        {
+            // Load employees
+            var employees = await _nvRepo.GetAllAsync();
+            
+            var utcNow = DateTime.UtcNow.Date;
+            var currentMonth = utcNow.Month;
+            var currentYear = utcNow.Year;
+
+            // Lấy danh sách nhân viên có sinh nhật trong tháng hiện tại
+            var birthdayEmployees = employees.Where(nv => 
+                !string.IsNullOrWhiteSpace(nv.Email) && 
+                nv.NgaySinh.Month == currentMonth)
+                .Select(nv => new
+                {
+                    nv.Id,
+                    nv.Ten,
+                    nv.Email,
+                    NgaySinh = nv.NgaySinh,
+                    Age = currentYear - nv.NgaySinh.Year
+                })
+                .OrderBy(x => x.NgaySinh.Day)
+                .ToList();
+
+            if (!birthdayEmployees.Any()) return 0;
+
+            // Lấy danh sách email để gửi thông báo
+            var cfgEmailsPaged = await _emailThongBaoRepo.GetPagedAsync(1, int.MaxValue);
+            var recipients = cfgEmailsPaged.Items.Select(e => e.Email).Where(s => !string.IsNullOrWhiteSpace(s)).ToList();
+
+            if (!recipients.Any()) return 0;
+
+            // Tạo template HTML cho email sinh nhật
+            var template = @"
+<!DOCTYPE html>
+<html lang=""en"">
+<head>
+    <meta charset=""UTF-8"">
+    <meta name=""viewport"" content=""width=device-width, initial-scale=1.0"">
+    <title>Báo cáo sinh nhật nhân viên tháng {2}</title>
+</head>
+<body style=""margin: 0; padding: 0; background-color: #f4f4f4; font-family: Arial, Helvetica, sans-serif;"">
+    <table role=""presentation"" style=""width: 100%; max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"">
+        <tr>
+            <td style=""padding: 20px; text-align: center; background-color: #ff6b6b; border-top-left-radius: 8px; border-top-right-radius: 8px;"">
+                <img src=""https://atpro.com.vn/wp-content/uploads/2020/10/logo-cong-ty-1024x342-1024x342.png"" alt=""Company Logo"" style=""max-width: 150px; height: auto; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto;"">
+                <h1 style=""color: #ffffff; font-size: 24px; margin: 0;"">🎉 Sinh nhật nhân viên tháng {2}/{3} 🎂</h1>
+                <p style=""color: #fff3cd; font-size: 14px; margin: 5px 0;"">Ngày gửi: {0:dd/MM/yyyy}</p>
+            </td>
+        </tr>
+        <tr>
+            <td style=""padding: 20px;"">
+                <p style=""font-size: 16px; color: #333; text-align: center; margin-bottom: 20px;"">
+                    Chúc mừng sinh nhật các nhân viên có sinh nhật trong tháng này! 🎈
+                </p>
+                <table role=""presentation"" style=""width: 100%; border-collapse: collapse;"">
+                    <thead>
+                        <tr style=""background-color: #ff6b6b; color: #ffffff;"">
+                            <th style=""padding: 12px; text-align: left; font-size: 14px; border: 1px solid #d1d5db;"">Họ tên</th>
+                            <th style=""padding: 12px; text-align: left; font-size: 14px; border: 1px solid #d1d5db;"">Ngày sinh</th>
+                            <th style=""padding: 12px; text-align: left; font-size: 14px; border: 1px solid #d1d5db;"">Tuổi</th>
+                            <th style=""padding: 12px; text-align: left; font-size: 14px; border: 1px solid #d1d5db;"">Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {1}
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td style=""padding: 20px; text-align: center; background-color: #f9fafb; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;"">
+                <p style=""color: #4b5563; font-size: 12px; margin: 0;"">Đây là email tự động từ hệ thống nhân sự. Vui lòng không trả lời trực tiếp email này.</p>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>";
+
+            // Generate table rows
+            var sb = new System.Text.StringBuilder();
+            int rowIndex = 0;
+            foreach (var emp in birthdayEmployees)
+            {
+                var rowStyle = rowIndex % 2 == 0 ? "background-color: #fff5f5;" : "background-color: #fef2f2;";
+                sb.AppendLine($"<tr style=\"{rowStyle}\">");
+                sb.AppendLine($"<td style=\"padding: 12px; border: 1px solid #d1d5db;\">{System.Net.WebUtility.HtmlEncode(emp.Ten)}</td>");
+                sb.AppendLine($"<td style=\"padding: 12px; border: 1px solid #d1d5db;\">{emp.NgaySinh:dd/MM/yyyy}</td>");
+                sb.AppendLine($"<td style=\"padding: 12px; border: 1px solid #d1d5db;\">{emp.Age} tuổi</td>");
+                sb.AppendLine($"<td style=\"padding: 12px; border: 1px solid #d1d5db;\">{System.Net.WebUtility.HtmlEncode(emp.Email)}</td>");
+                sb.AppendLine("</tr>");
+                rowIndex++;
+            }
+
+            // Format HTML body
+            var htmlBody = string.Format(template, DateTime.UtcNow, sb.ToString(), currentMonth, currentYear);
+
+            // Create Excel file
+            byte[] excelBytes;
+            using (var wb = new ClosedXML.Excel.XLWorkbook())
+            {
+                var ws = wb.Worksheets.Add("SinhNhat");
+                ws.Cell(1, 1).Value = "Họ tên";
+                ws.Cell(1, 2).Value = "Ngày sinh";
+                ws.Cell(1, 3).Value = "Tuổi";
+                ws.Cell(1, 4).Value = "Email";
+                
+                int row = 2;
+                foreach (var emp in birthdayEmployees)
+                {
+                    ws.Cell(row, 1).Value = emp.Ten;
+                    ws.Cell(row, 2).Value = emp.NgaySinh.ToString("dd/MM/yyyy");
+                    ws.Cell(row, 3).Value = emp.Age;
+                    ws.Cell(row, 4).Value = emp.Email;
+                    row++;
+                }
+
+                ws.Columns().AdjustToContents();
+
+                using (var ms = new System.IO.MemoryStream())
+                {
+                    wb.SaveAs(ms);
+                    excelBytes = ms.ToArray();
+                }
+            }
+
+            // Send emails
+            int sent = 0;
+            var subject = $"🎉 Sinh nhật nhân viên tháng {currentMonth}/{currentYear}";
+            var attachments = new List<(string FileName, byte[] Content)> { ($"SinhNhat_T{currentMonth}_{currentYear}.xlsx", excelBytes) };
+
+            foreach (var to in recipients)
+            {
+                try
+                {
+                    await _emailSender.SendEmailAsync(to, subject, htmlBody, attachments);
+                    sent++;
+                }
+                catch
+                {
+                    // continue to next recipient
+                }
+            }
+
+            return sent * birthdayEmployees.Count;
         }
 
     }

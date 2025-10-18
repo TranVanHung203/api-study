@@ -40,7 +40,9 @@ builder.Services.AddScoped<Service.Contracts.ICauHinhThongBaoService, Service.Ca
 builder.Services.AddScoped<Service.Contracts.IThongBaoService, Service.ThongBaoService>();
 // Register scheduled hosted service to run notifications daily at 08:00 local time
 builder.Services.AddHostedService<Service.CauHinhThongBaoScheduledService>();
-//Provide access to HttpContext for background services when necessary
+// Register birthday notification service to run on 1st of each month at 08:00 local time
+builder.Services.AddHostedService<Service.BirthdayScheduledService>();
+// //Provide access to HttpContext for background services when necessary
 builder.Services.AddHttpContextAccessor();
 // Hosted background job removed: notifications will be triggered manually via controller
 // 🔹 JWT

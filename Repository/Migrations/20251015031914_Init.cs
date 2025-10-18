@@ -26,7 +26,8 @@ namespace Repository.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     IsActive = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     ExcludeSaturday = table.Column<bool>(type: "tinyint(1)", nullable: false),
-                    ExcludeSunday = table.Column<bool>(type: "tinyint(1)", nullable: false)
+                    ExcludeSunday = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    SoNgayThongBaoTruoc = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -83,6 +84,8 @@ namespace Repository.Migrations
                     DiaChi = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     NgayVaoLam = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    NgaySinh = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    NgayLamViecChinhThuc = table.Column<DateTime>(type: "datetime(6)", nullable: true),
                     IsDeleted = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>

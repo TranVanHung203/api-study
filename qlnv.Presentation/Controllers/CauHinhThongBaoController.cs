@@ -148,6 +148,21 @@ namespace qlnv.Presentation.Controllers
             }
         }
 
+        // POST api/CauHinhThongBao/run-birthday-check
+        [HttpPost("run-birthday-check")]
+        public async Task<IActionResult> RunBirthdayCheck()
+        {
+            try
+            {
+                var sent = await _service.RunBirthdayCheckAndSendAsync();
+                return Ok(new { message = $"Đã gửi {sent} thông báo sinh nhật", sentCount = sent });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Lỗi hệ thống", detail = ex.Message });
+            }
+        }
+
 
     }
 }

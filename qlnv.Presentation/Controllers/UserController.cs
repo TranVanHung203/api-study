@@ -3,6 +3,7 @@ using Entities.DTOs;
 using Entities.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace qlnv.Presentation.Controllers
 {
@@ -145,6 +146,71 @@ namespace qlnv.Presentation.Controllers
             if (existing == null) return NotFound();
             await _repo.DeleteAsync(existing);
             return NoContent();
+        }
+
+        [HttpPost("change-password")]
+        [Authorize] // Yêu cầu đăng nhập
+        public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordDto dto)
+        {
+            if (dto == null) return BadRequest(new { message = "Dữ liệu không hợp lệ" });
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            try
+            {
+                // Lấy UserId từ JWT claim (ASP.NET Core đã map "sub" thành ClaimTypes.NameIdentifier)
+                var userIdClaim = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier);
+                
+                if (userIdClaim == null || string.IsNullOrEmpty(userIdClaim.Value))
+                {
+                    return BadRequest(new { message = "Không tìm thấy UserId trong token" });
+                }
+
+                if (!Guid.TryParse(userIdClaim.Value, out var currentUserGuid))
+                    return BadRequest(new { message = "UserId không hợp lệ", userId = userIdClaim.Value });
+
+                // Chỉ cho phép user đổi mật khẩu của chính mình, trừ Admin có thể đổi cho bất kỳ ai
+                if (dto.UserId != currentUserGuid && !User.IsInRole("Admin"))
+                {
+                    return Forbid("Bạn chỉ có thể đổi mật khẩu của chính mình");
+                }
+
+                var user = await _repo.GetByIdAsync(dto.UserId);
+                if (user == null) return NotFound(new { message = "Không tìm thấy người dùng" });
+
+                // Verify current password
+                if (!BCrypt.Net.BCrypt.Verify(dto.CurrentPassword, user.PasswordHash))
+                {
+                    return BadRequest(new { message = "Mật khẩu hiện tại không đúng" });
+                }
+
+                // Hash new password and update
+                user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.NewPassword);
+                await _repo.UpdateAsync(user);
+
+                return Ok(new { message = "Đổi mật khẩu thành công" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Lỗi hệ thống", detail = ex.Message });
+            }
+        }
+
+        [HttpGet("debug-claims")]
+        [Authorize]
+        public IActionResult DebugClaims()
+        {
+            var claims = User.Claims.Select(c => new { 
+                Type = c.Type, 
+                Value = c.Value,
+                ValueType = c.ValueType,
+                Issuer = c.Issuer 
+            }).ToList();
+            
+            return Ok(new { 
+                identity = User.Identity?.Name,
+                isAuthenticated = User.Identity?.IsAuthenticated,
+                claims = claims 
+            });
         }
     }
 }

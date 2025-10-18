@@ -126,5 +126,24 @@ namespace Service
 
             await _repo.DeleteAsync(existing);
         }
+
+        public async Task<bool> ChangePasswordAsync(ChangePasswordDto dto)
+        {
+            var user = await _repo.GetByIdAsync(dto.UserId);
+            if (user == null) throw new KeyNotFoundException("Không tìm thấy người dùng");
+
+            // Verify current password
+            if (!BCrypt.Net.BCrypt.Verify(dto.CurrentPassword, user.PasswordHash))
+            {
+                throw new InvalidOperationException("Mật khẩu hiện tại không đúng");
+            }
+
+            // Hash new password
+            user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.NewPassword);
+            
+            await _repo.UpdateAsync(user);
+            
+            return true;
+        }
     }
 }

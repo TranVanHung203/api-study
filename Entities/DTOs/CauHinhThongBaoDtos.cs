@@ -10,6 +10,7 @@ namespace Entities.DTOs
         public bool IsActive { get; set; }
         public bool ExcludeSaturday { get; set; }
         public bool ExcludeSunday { get; set; }
+        public int SoNgayThongBaoTruoc { get; set; }
     }
 
     public class UpdateCauHinhThongBaoDto
@@ -24,6 +25,9 @@ namespace Entities.DTOs
         public bool IsActive { get; set; }
         public bool ExcludeSaturday { get; set; }
         public bool ExcludeSunday { get; set; }
+        
+        [Range(1, 365)]
+        public int SoNgayThongBaoTruoc { get; set; } = 30;
     }
 
     public class CreateCauHinhThongBaoDto
@@ -34,6 +38,9 @@ namespace Entities.DTOs
         public bool IsActive { get; set; } = false;
         public bool ExcludeSaturday { get; set; } = true;
         public bool ExcludeSunday { get; set; } = true;
+        
+        [Range(1, 365)]
+        public int SoNgayThongBaoTruoc { get; set; } = 30;
     }
 
     // SendCauHinhThongBaoDto removed - /send endpoint deprecated

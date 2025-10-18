@@ -8,8 +8,9 @@ namespace Contracts
         Task<NhanVien> CreateAsync(NhanVien nhanVien);
         Task<NhanVien?> GetByIdAsync(int id);
         Task<List<NhanVien>> GetAllAsync();
-        Task<PagedResult<NhanVien>> GetPagedAsync(int page, int pageSize, string? ten = null, string? sdt = null);
+        Task<PagedResult<NhanVien>> GetPagedAsync(int page, int pageSize, string? ten = null, string? sdt = null, bool? isDeleted = null);
         Task UpdateAsync(NhanVien nhanVien);
         Task DeleteAsync(NhanVien nhanVien);
+        Task RestoreAsync(NhanVien nhanVien);
     }
 }

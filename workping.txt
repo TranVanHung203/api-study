@@ -1,0 +1,6 @@
+- thêm ngày sinh nhật nhân viên, thêm cột ngày làm chính thức
+- gửi mail đầu tháng thông báo sinh nhật  
+- bỏ cái T7,CN
+- gửi mail báo năm trước 1 số cài
+- bỏ nút xóa đổi thành trạng thái làm việc 
+
