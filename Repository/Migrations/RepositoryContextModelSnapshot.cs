@@ -115,6 +115,9 @@ namespace Repository.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("tinyint(1)");
 
+                    b.Property<string>("LoaiHopDong")
+                        .HasColumnType("longtext");
+
                     b.Property<DateTime?>("NgayLamViecChinhThuc")
                         .HasColumnType("datetime(6)");
 
@@ -127,6 +130,9 @@ namespace Repository.Migrations
                     b.Property<string>("SoDienThoai")
                         .IsRequired()
                         .HasColumnType("longtext");
+
+                    b.Property<int?>("SoThangHopDong")
+                        .HasColumnType("int");
 
                     b.Property<string>("Ten")
                         .IsRequired()

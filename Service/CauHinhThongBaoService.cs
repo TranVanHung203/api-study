@@ -131,8 +131,9 @@ namespace Service
             int soNgay = cfg?.SoNgayThongBao ?? 60;
             int soNgayThongBaoTruoc = cfg?.SoNgayThongBaoTruoc ?? 30;
 
-            // Load employees
-            var employees = await _nvRepo.GetAllAsync();
+            // Load employees - Lấy nhân viên có loại hợp đồng "1nam" HOẶC "khac"
+            var allEmployees = await _nvRepo.GetAllAsync();
+            var employees = allEmployees.Where(nv => nv.LoaiHopDong == "1nam" || nv.LoaiHopDong == "khac").ToList();
 
             // Load holidays (chỉ để loại trừ ngày lễ, không loại trừ cuối tuần)
             var holidaysPaged = await _ngayLeRepo.GetPagedAsync(1, int.MaxValue);
@@ -150,57 +151,87 @@ namespace Service
                 {
                     if (string.IsNullOrWhiteSpace(nv.Email)) continue;
 
-                    // Anniversary years from config (e.g. "1,2,3")
-                    var years = new List<int>();
-                    if (!string.IsNullOrWhiteSpace(cfg?.DanhSachNamThongBao))
-                    {
-                        years = cfg.DanhSachNamThongBao.Split(',', StringSplitOptions.RemoveEmptyEntries)
-                            .Select(s => { if (int.TryParse(s.Trim(), out var v)) return v; return 0; })
-                            .Where(v => v > 0).ToList();
-                    }
+                    bool contractHandled = false;
 
-                    // Check anniversary years - Sử dụng NgayLamViecChinhThuc thay vì NgayVaoLam
-                    bool anniversaryHandled = false;
-                    var reasons = new List<string>();
-
+                    // Xử lý thông báo hợp đồng dựa vào loại hợp đồng
                     if (nv.NgayLamViecChinhThuc.HasValue)
                     {
                         var officialDate = nv.NgayLamViecChinhThuc.Value.Date;
-                        
-                        foreach (var y in years)
+
+                        if (nv.LoaiHopDong == "1nam")
                         {
-                            var anniversaryDate = officialDate.AddYears(y);
-                            var notificationDate = anniversaryDate.AddDays(-soNgayThongBaoTruoc);
-                            
-                            // Thông báo trước soNgayThongBaoTruoc ngày
-                            if (utcNow >= notificationDate && utcNow < anniversaryDate)
+                            // Hợp đồng 1 năm: Thông báo MỌI năm (năm 1, 2, 3, 4,...)
+                            int yearNum = 1;
+                            while (true)
                             {
-                                var daysLeft = (anniversaryDate - utcNow).Days;
-                                reasons.Add($"Sắp tới kỷ niệm {y} năm làm việc chính thức (còn {daysLeft} ngày)");
-                            }
-                            else if (soNgayThongBaoTruoc == 0 && utcNow == anniversaryDate)
-                            {
-                                reasons.Add($"Kỷ niệm {y} năm làm việc chính thức");
+                                var anniversaryDate = officialDate.AddYears(yearNum);
+                                var notificationDate = anniversaryDate.AddDays(-soNgayThongBaoTruoc);
+
+                                // Nếu notificationDate chưa đến thì dừng loop
+                                if (notificationDate > utcNow) break;
+
+                                // Thông báo trong khoảng [notificationDate, anniversaryDate)
+                                if (utcNow >= notificationDate && utcNow < anniversaryDate)
+                                {
+                                    var daysLeft = soNgayThongBaoTruoc;
+                                    var reason = $"Ngày làm chính thức: {officialDate:dd/MM/yyyy}. Còn {daysLeft} ngày nữa là hết hạn hợp đồng năm lần {yearNum}";
+                                    toNotify.Add((nv.Id, nv.Email, reason));
+                                    contractHandled = true;
+                                }
+                                else if (soNgayThongBaoTruoc == 0 && utcNow == anniversaryDate)
+                                {
+                                    var reason = $"Ngày làm chính thức: {officialDate:dd/MM/yyyy}. Hôm nay hết hạn hợp đồng năm lần {yearNum}";
+                                    toNotify.Add((nv.Id, nv.Email, reason));
+                                    contractHandled = true;
+                                }
+
+                                yearNum++;
                             }
                         }
-
-                        foreach (var reason in reasons)
+                        else if (nv.LoaiHopDong == "khac" && nv.SoThangHopDong.HasValue && nv.SoThangHopDong.Value > 0)
                         {
-                            toNotify.Add((nv.Id, nv.Email, reason));
-                            anniversaryHandled = true;
+                            // Hợp đồng khác: Thông báo theo chu kỳ SoThangHopDong (lần 1, 2, 3,...)
+                            int cycleNum = 1;
+                            while (true)
+                            {
+                                var cycleEndDate = officialDate.AddMonths(nv.SoThangHopDong.Value * cycleNum);
+                                var notificationDate = cycleEndDate.AddDays(-soNgayThongBaoTruoc);
+
+                                // Nếu notificationDate chưa đến thì dừng loop
+                                if (notificationDate > utcNow) break;
+
+                                // Thông báo trong khoảng [notificationDate, cycleEndDate)
+                                if (utcNow >= notificationDate && utcNow < cycleEndDate)
+                                {
+                                    var daysLeft = soNgayThongBaoTruoc;
+                                    var reason = $"Ngày làm chính thức: {officialDate:dd/MM/yyyy}. Còn {daysLeft} ngày nữa là hết hạn hợp đồng lần {cycleNum}";
+                                    toNotify.Add((nv.Id, nv.Email, reason));
+                                    contractHandled = true;
+                                }
+                                else if (soNgayThongBaoTruoc == 0 && utcNow == cycleEndDate)
+                                {
+                                    var reason = $"Ngày làm chính thức: {officialDate:dd/MM/yyyy}. Hôm nay hết hạn hợp đồng lần {cycleNum}";
+                                    toNotify.Add((nv.Id, nv.Email, reason));
+                                    contractHandled = true;
+                                }
+
+                                cycleNum++;
+                            }
                         }
                     }
 
-                    if (anniversaryHandled) continue;
+                    
 
                     // Probation logic: Tính tổng số ngày (bao gồm cả cuối tuần, chỉ loại trừ ngày lễ)
+                    // Áp dụng cho cả "1nam" và "khac"
                     var join = nv.NgayVaoLam.Date;
                     var totalDays = CountTotalDays(join, utcNow, holidays);
                     if (totalDays >= soNgay)
                     {
-                        var reason = $"Đã đủ {soNgay} ngày làm việc (thử việc)";
+                        var reason = $"Đủ {soNgay} ngày thử việc";
                         toNotify.Add((nv.Id, nv.Email, reason));
                     }
+                    if (contractHandled) continue;
                 }
                 catch
                 {

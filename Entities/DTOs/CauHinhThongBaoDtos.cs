@@ -26,7 +26,7 @@ namespace Entities.DTOs
         public bool ExcludeSaturday { get; set; }
         public bool ExcludeSunday { get; set; }
         
-        [Range(1, 365)]
+        [Range(0, 365)]
         public int SoNgayThongBaoTruoc { get; set; } = 30;
     }
 
@@ -39,7 +39,7 @@ namespace Entities.DTOs
         public bool ExcludeSaturday { get; set; } = true;
         public bool ExcludeSunday { get; set; } = true;
         
-        [Range(1, 365)]
+        [Range(0, 365)]
         public int SoNgayThongBaoTruoc { get; set; } = 30;
     }
 

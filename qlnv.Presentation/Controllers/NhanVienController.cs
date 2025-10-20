@@ -22,7 +22,7 @@ namespace qlnv.Presentation.Controllers
                 using var workbook = new XLWorkbook();
                 var worksheet = workbook.Worksheets.Add("NhanVien");
                 
-                // Tạo header
+                // Tạo header (9 cột bao gồm hợp đồng)
                 worksheet.Cell(1, 1).Value = "Tên (*bắt buộc)";
                 worksheet.Cell(1, 2).Value = "Email (*bắt buộc)";
                 worksheet.Cell(1, 3).Value = "Số điện thoại";
@@ -30,6 +30,8 @@ namespace qlnv.Presentation.Controllers
                 worksheet.Cell(1, 5).Value = "Ngày vào làm (*bắt buộc, dd/MM/yyyy)";
                 worksheet.Cell(1, 6).Value = "Ngày sinh (*bắt buộc, dd/MM/yyyy)";
                 worksheet.Cell(1, 7).Value = "Ngày làm việc chính thức (dd/MM/yyyy)";
+                worksheet.Cell(1, 8).Value = "Loại hợp đồng (*bắt buộc: gõ 1nam hoặc vothoihan hoặc khac)";
+                worksheet.Cell(1, 9).Value = "Số tháng hợp đồng (CHỈ nhập khi Loại = khac, ví dụ: 6, 18, 24...)";
 
                 // Tạo dữ liệu mẫu
                 worksheet.Cell(2, 1).Value = "Nguyễn Văn A";
@@ -39,9 +41,33 @@ namespace qlnv.Presentation.Controllers
                 worksheet.Cell(2, 5).Value = "15/01/2024";
                 worksheet.Cell(2, 6).Value = "20/05/1990";
                 worksheet.Cell(2, 7).Value = "15/03/2024";
+                worksheet.Cell(2, 8).Value = "1nam";
+                worksheet.Cell(2, 9).Value = ""; // Để trống vì 1nam tự động = 12 tháng ở server
+
+                // Dòng mẫu 2: hợp đồng vô thời hạn
+                worksheet.Cell(3, 1).Value = "Trần Thị B";
+                worksheet.Cell(3, 2).Value = "tranthib@example.com";
+                worksheet.Cell(3, 3).Value = "0987654321";
+                worksheet.Cell(3, 4).Value = "TP.HCM";
+                worksheet.Cell(3, 5).Value = "01/02/2024";
+                worksheet.Cell(3, 6).Value = "15/08/1992";
+                worksheet.Cell(3, 7).Value = "01/04/2024";
+                worksheet.Cell(3, 8).Value = "vothoihan";
+                worksheet.Cell(3, 9).Value = ""; // Để trống vì vothoihan tự động = 999 tháng
+
+                // Dòng mẫu 3: hợp đồng khác (cần nhập số tháng)
+                worksheet.Cell(4, 1).Value = "Lê Văn C";
+                worksheet.Cell(4, 2).Value = "levanc@example.com";
+                worksheet.Cell(4, 3).Value = "0123987654";
+                worksheet.Cell(4, 4).Value = "Đà Nẵng";
+                worksheet.Cell(4, 5).Value = "10/03/2024";
+                worksheet.Cell(4, 6).Value = "20/12/1995";
+                worksheet.Cell(4, 7).Value = "10/05/2024";
+                worksheet.Cell(4, 8).Value = "khac";
+                worksheet.Cell(4, 9).Value = "6"; // Nhập số tháng khi chọn khac
 
                 // Format header
-                var headerRange = worksheet.Range(1, 1, 1, 7);
+                var headerRange = worksheet.Range(1, 1, 1, 9);
                 headerRange.Style.Font.Bold = true;
                 headerRange.Style.Fill.BackgroundColor = XLColor.LightBlue;
                 

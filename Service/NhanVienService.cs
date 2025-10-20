@@ -3,6 +3,7 @@ using Entities.DTOs;
 using Entities.Models;
 using Service.Contracts;
 using ClosedXML.Excel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Service
 {
@@ -13,15 +14,32 @@ namespace Service
 
         public async Task<NhanVienDto> CreateAsync(CreateNhanVienDto dto)
         {
+            // Xác định số tháng hợp đồng dựa trên loại
+            int? soThang = dto.LoaiHopDong switch
+            {
+                "1nam" => 12,
+                "vothoihan" => 999,
+                "khac" => dto.SoThangHopDong, // sẽ được validate phía sau
+                _ => null
+            };
+
+            if (dto.LoaiHopDong == "khac")
+            {
+                if (!dto.SoThangHopDong.HasValue || dto.SoThangHopDong.Value <= 0)
+                    throw new ValidationException("SoThangHopDong phải > 0 khi LoaiHopDong = khac");
+            }
+
             var entity = new NhanVien
             {
                 Ten = dto.Ten,
                 Email = dto.Email,
-                SoDienThoai = dto.SoDienThoai,
-                DiaChi = dto.DiaChi,
+                SoDienThoai = dto.SoDienThoai ?? string.Empty,
+                DiaChi = dto.DiaChi ?? string.Empty,
                 NgayVaoLam = dto.NgayVaoLam,
                 NgaySinh = dto.NgaySinh,
-                NgayLamViecChinhThuc = dto.NgayLamViecChinhThuc
+                NgayLamViecChinhThuc = dto.NgayLamViecChinhThuc,
+                LoaiHopDong = dto.LoaiHopDong,
+                SoThangHopDong = soThang
             };
             var created = await _repo.CreateAsync(entity);
             return new NhanVienDto
@@ -34,6 +52,8 @@ namespace Service
                 NgayVaoLam = created.NgayVaoLam,
                 NgaySinh = created.NgaySinh,
                 NgayLamViecChinhThuc = created.NgayLamViecChinhThuc,
+                LoaiHopDong = created.LoaiHopDong,
+                SoThangHopDong = created.SoThangHopDong,
                 IsDeleted = created.IsDeleted
             };
         }
@@ -51,6 +71,8 @@ namespace Service
                 NgayVaoLam = nv.NgayVaoLam,
                 NgaySinh = nv.NgaySinh,
                 NgayLamViecChinhThuc = nv.NgayLamViecChinhThuc,
+                LoaiHopDong = nv.LoaiHopDong,
+                SoThangHopDong = nv.SoThangHopDong,
                 IsDeleted = nv.IsDeleted
             };
         }
@@ -74,6 +96,8 @@ namespace Service
                     NgayVaoLam = n.NgayVaoLam,
                     NgaySinh = n.NgaySinh,
                     NgayLamViecChinhThuc = n.NgayLamViecChinhThuc,
+                    LoaiHopDong = n.LoaiHopDong,
+                    SoThangHopDong = n.SoThangHopDong,
                     IsDeleted = n.IsDeleted
                 })
             };
@@ -84,13 +108,28 @@ namespace Service
             var existing = await _repo.GetByIdAsync(dto.Id);
             if (existing == null) throw new KeyNotFoundException("Không tìm thấy nhân viên");
 
+            int? soThang = dto.LoaiHopDong switch
+            {
+                "1nam" => 12,
+                "vothoihan" => 999,
+                "khac" => dto.SoThangHopDong,
+                _ => existing.SoThangHopDong // giữ nguyên nếu giá trị không hợp lệ (sẽ hiếm khi xảy ra do validation)
+            };
+            if (dto.LoaiHopDong == "khac")
+            {
+                if (!dto.SoThangHopDong.HasValue || dto.SoThangHopDong.Value <= 0)
+                    throw new ValidationException("SoThangHopDong phải > 0 khi LoaiHopDong = khac");
+            }
+
             existing.Ten = dto.Ten;
             existing.Email = dto.Email;
-            existing.SoDienThoai = dto.SoDienThoai;
-            existing.DiaChi = dto.DiaChi;
+            existing.SoDienThoai = dto.SoDienThoai ?? existing.SoDienThoai;
+            existing.DiaChi = dto.DiaChi ?? existing.DiaChi;
             existing.NgayVaoLam = dto.NgayVaoLam;
             existing.NgaySinh = dto.NgaySinh;
             existing.NgayLamViecChinhThuc = dto.NgayLamViecChinhThuc;
+            existing.LoaiHopDong = dto.LoaiHopDong;
+            existing.SoThangHopDong = soThang;
 
             await _repo.UpdateAsync(existing);
 
@@ -104,6 +143,8 @@ namespace Service
                 NgayVaoLam = existing.NgayVaoLam,
                 NgaySinh = existing.NgaySinh,
                 NgayLamViecChinhThuc = existing.NgayLamViecChinhThuc,
+                LoaiHopDong = existing.LoaiHopDong,
+                SoThangHopDong = existing.SoThangHopDong,
                 IsDeleted = existing.IsDeleted
             };
         }
@@ -132,7 +173,10 @@ namespace Service
                 DiaChi = existing.DiaChi,
                 NgayVaoLam = existing.NgayVaoLam,
                 NgaySinh = existing.NgaySinh,
-                NgayLamViecChinhThuc = existing.NgayLamViecChinhThuc
+                NgayLamViecChinhThuc = existing.NgayLamViecChinhThuc,
+                LoaiHopDong = existing.LoaiHopDong,
+                SoThangHopDong = existing.SoThangHopDong,
+                IsDeleted = existing.IsDeleted
             };
         }
 
@@ -166,7 +210,7 @@ namespace Service
                     
                     try
                     {
-                        // Đọc dữ liệu từ các cột (giả sử theo thứ tự: Tên, Email, SĐT, Địa chỉ, Ngày vào làm, Ngày sinh, Ngày làm việc chính thức)
+                        // Đọc dữ liệu từ các cột (thứ tự): Tên, Email, SĐT, Địa chỉ, Ngày vào làm, Ngày sinh, Ngày làm việc chính thức, LoaiHopDong, SoThangHopDong
                         var ten = row.Cell(1).GetString().Trim();
                         var email = row.Cell(2).GetString().Trim();
                         var soDienThoai = row.Cell(3).GetString().Trim();
@@ -174,6 +218,8 @@ namespace Service
                         var ngayVaoLamStr = row.Cell(5).GetString().Trim();
                         var ngaySinhStr = row.Cell(6).GetString().Trim();
                         var ngayLamViecChinhThucStr = row.Cell(7).GetString().Trim();
+                        var loaiHopDong = row.Cell(8).GetString().Trim();
+                        var soThangHopDongStr = row.Cell(9).GetString().Trim();
 
                         // Validate required fields
                         if (string.IsNullOrEmpty(ten) || string.IsNullOrEmpty(email))
@@ -223,6 +269,37 @@ namespace Service
                             ngayLamViecChinhThuc = parsedNgayLamViecChinhThuc;
                         }
 
+                        // Hợp đồng: validate và chuẩn hóa
+                        if (string.IsNullOrEmpty(loaiHopDong)) loaiHopDong = "1nam"; // mặc định
+                        if (loaiHopDong != "1nam" && loaiHopDong != "vothoihan" && loaiHopDong != "khac")
+                        {
+                            result.Errors.Add(new ImportErrorDto
+                            {
+                                Row = rowNumber,
+                                Error = "LoaiHopDong không hợp lệ (chỉ: 1nam|vothoihan|khac)",
+                                Data = loaiHopDong
+                            });
+                            result.FailedCount++;
+                            continue;
+                        }
+
+                        int? soThangHopDong = null;
+                        if (loaiHopDong == "khac")
+                        {
+                            if (string.IsNullOrEmpty(soThangHopDongStr) || !int.TryParse(soThangHopDongStr, out var parsedSoThang) || parsedSoThang <= 0)
+                            {
+                                result.Errors.Add(new ImportErrorDto
+                                {
+                                    Row = rowNumber,
+                                    Error = "Số tháng hợp đồng phải là số > 0 khi LoaiHopDong = khac",
+                                    Data = soThangHopDongStr
+                                });
+                                result.FailedCount++;
+                                continue;
+                            }
+                            soThangHopDong = parsedSoThang;
+                        }
+
                         // Create employee
                         var createDto = new CreateNhanVienDto
                         {
@@ -232,7 +309,9 @@ namespace Service
                             DiaChi = string.IsNullOrEmpty(diaChi) ? null : diaChi,
                             NgayVaoLam = ngayVaoLam,
                             NgaySinh = ngaySinh,
-                            NgayLamViecChinhThuc = ngayLamViecChinhThuc
+                            NgayLamViecChinhThuc = ngayLamViecChinhThuc,
+                            LoaiHopDong = loaiHopDong,
+                            SoThangHopDong = soThangHopDong
                         };
 
                         var created = await CreateAsync(createDto);

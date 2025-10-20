@@ -13,6 +13,8 @@ namespace Entities.DTOs
         public DateTime NgayVaoLam { get; set; }
         public DateTime NgaySinh { get; set; }
         public DateTime? NgayLamViecChinhThuc { get; set; }
+        public string? LoaiHopDong { get; set; }
+        public int? SoThangHopDong { get; set; }
         public bool IsDeleted { get; set; }
     }
 
@@ -42,6 +44,14 @@ namespace Entities.DTOs
 
         [DataType(DataType.Date)]
         public DateTime? NgayLamViecChinhThuc { get; set; }
+
+        // "1nam" | "vothoihan" | "khac" (có thể mở rộng thành enum sau)
+        [Required]
+        [RegularExpression("^(1nam|vothoihan|khac)$", ErrorMessage = "LoaiHopDong phải là 1nam, vothoihan hoặc khac")]
+        public string LoaiHopDong { get; set; } = "1nam";
+
+        // Nếu LoaiHopDong = khac thì bắt buộc nhập số tháng > 0, còn lại service sẽ tự gán (12 hoặc 999)
+        public int? SoThangHopDong { get; set; }
     }
 
     public class UpdateNhanVienDto
@@ -73,6 +83,12 @@ namespace Entities.DTOs
 
         [DataType(DataType.Date)]
         public DateTime? NgayLamViecChinhThuc { get; set; }
+
+        [Required]
+        [RegularExpression("^(1nam|vothoihan|khac)$", ErrorMessage = "LoaiHopDong phải là 1nam, vothoihan hoặc khac")]
+        public string LoaiHopDong { get; set; } = "1nam";
+
+        public int? SoThangHopDong { get; set; }
     }
 
     public class ImportNhanVienResultDto
