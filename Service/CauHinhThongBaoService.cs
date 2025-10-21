@@ -174,13 +174,13 @@ namespace Service
                                 if (utcNow >= notificationDate && utcNow < anniversaryDate)
                                 {
                                     var daysLeft = soNgayThongBaoTruoc;
-                                    var reason = $"Ngày làm chính thức: {officialDate:dd/MM/yyyy}. Còn {daysLeft} ngày nữa là hết hạn hợp đồng năm lần {yearNum}";
+                                    var reason = $"Ngày kí hợp đồng chính thức: {officialDate:dd/MM/yyyy}. Còn {daysLeft} ngày nữa là hết hạn hợp đồng năm lần {yearNum}";
                                     toNotify.Add((nv.Id, nv.Email, reason));
                                     contractHandled = true;
                                 }
                                 else if (soNgayThongBaoTruoc == 0 && utcNow == anniversaryDate)
                                 {
-                                    var reason = $"Ngày làm chính thức: {officialDate:dd/MM/yyyy}. Hôm nay hết hạn hợp đồng năm lần {yearNum}";
+                                    var reason = $"Ngày kí hợp đồng chính thức: {officialDate:dd/MM/yyyy}. Hôm nay hết hạn hợp đồng năm lần {yearNum}";
                                     toNotify.Add((nv.Id, nv.Email, reason));
                                     contractHandled = true;
                                 }
@@ -204,13 +204,13 @@ namespace Service
                                 if (utcNow >= notificationDate && utcNow < cycleEndDate)
                                 {
                                     var daysLeft = soNgayThongBaoTruoc;
-                                    var reason = $"Ngày làm chính thức: {officialDate:dd/MM/yyyy}. Còn {daysLeft} ngày nữa là hết hạn hợp đồng lần {cycleNum}";
+                                    var reason = $"Ngày kí hợp đồng chính thức: {officialDate:dd/MM/yyyy}. Còn {daysLeft} ngày nữa là hết hạn hợp đồng lần {cycleNum}";
                                     toNotify.Add((nv.Id, nv.Email, reason));
                                     contractHandled = true;
                                 }
                                 else if (soNgayThongBaoTruoc == 0 && utcNow == cycleEndDate)
                                 {
-                                    var reason = $"Ngày làm chính thức: {officialDate:dd/MM/yyyy}. Hôm nay hết hạn hợp đồng lần {cycleNum}";
+                                    var reason = $"Ngày kí hợp đồng chính thức: {officialDate:dd/MM/yyyy}. Hôm nay hết hạn hợp đồng lần {cycleNum}";
                                     toNotify.Add((nv.Id, nv.Email, reason));
                                     contractHandled = true;
                                 }

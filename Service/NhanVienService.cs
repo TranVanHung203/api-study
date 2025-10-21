@@ -32,7 +32,7 @@ namespace Service
             var entity = new NhanVien
             {
                 Ten = dto.Ten,
-                Email = dto.Email,
+                Email = dto.Email ?? string.Empty,
                 SoDienThoai = dto.SoDienThoai ?? string.Empty,
                 DiaChi = dto.DiaChi ?? string.Empty,
                 NgayVaoLam = dto.NgayVaoLam,
@@ -122,7 +122,7 @@ namespace Service
             }
 
             existing.Ten = dto.Ten;
-            existing.Email = dto.Email;
+            existing.Email = dto.Email ?? existing.Email;
             existing.SoDienThoai = dto.SoDienThoai ?? existing.SoDienThoai;
             existing.DiaChi = dto.DiaChi ?? existing.DiaChi;
             existing.NgayVaoLam = dto.NgayVaoLam;
@@ -221,14 +221,14 @@ namespace Service
                         var loaiHopDong = row.Cell(8).GetString().Trim();
                         var soThangHopDongStr = row.Cell(9).GetString().Trim();
 
-                        // Validate required fields
-                        if (string.IsNullOrEmpty(ten) || string.IsNullOrEmpty(email))
+                        // Validate required fields - CHỈ TÊN là bắt buộc
+                        if (string.IsNullOrEmpty(ten))
                         {
                             result.Errors.Add(new ImportErrorDto
                             {
                                 Row = rowNumber,
-                                Error = "Tên và Email không được để trống",
-                                Data = $"Tên: {ten}, Email: {email}"
+                                Error = "Tên không được để trống",
+                                Data = $"Tên: {ten}"
                             });
                             result.FailedCount++;
                             continue;
@@ -243,7 +243,7 @@ namespace Service
                             result.Errors.Add(new ImportErrorDto
                             {
                                 Row = rowNumber,
-                                Error = "Ngày vào làm không hợp lệ (định dạng yêu cầu: dd/MM/yyyy)",
+                                Error = "Ngày thử việc không hợp lệ (định dạng yêu cầu: dd/MM/yyyy)",
                                 Data = ngayVaoLamStr
                             });
                             result.FailedCount++;
@@ -304,7 +304,7 @@ namespace Service
                         var createDto = new CreateNhanVienDto
                         {
                             Ten = ten,
-                            Email = email,
+                            Email = string.IsNullOrEmpty(email) ? null : email,
                             SoDienThoai = string.IsNullOrEmpty(soDienThoai) ? null : soDienThoai,
                             DiaChi = string.IsNullOrEmpty(diaChi) ? null : diaChi,
                             NgayVaoLam = ngayVaoLam,

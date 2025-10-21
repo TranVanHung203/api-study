@@ -10,9 +10,6 @@
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\ATPro\\.Net Web\\workping-publish\\backend\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\ATPro\\.Net Web\\qlnv-client\\dist\\qlnv-client\\browser\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E8E4F2B5-8074-4F34-8843-38B65D46BC52}|qlnv\\qlnv.csproj|f:\\atpro\\.net web\\qlnv\\qlnv\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E8E4F2B5-8074-4F34-8843-38B65D46BC52}|qlnv\\qlnv.csproj|solutionrelative:qlnv\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -250,7 +247,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -266,12 +263,11 @@
               "RelativeToolTip": "..\\workping-publish\\backend\\web.config",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-10-16T03:42:19.194Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-16T03:42:19.194Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "launchSettings.json",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\qlnv\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "qlnv\\Properties\\launchSettings.json",
@@ -283,7 +279,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "appsettings.json",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\qlnv\\appsettings.json",
               "RelativeDocumentMoniker": "qlnv\\appsettings.json",
@@ -295,7 +291,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\qlnv\\Program.cs",
               "RelativeDocumentMoniker": "qlnv\\Program.cs",
@@ -307,32 +303,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "web.config",
-              "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv-client\\dist\\qlnv-client\\browser\\web.config",
-              "RelativeDocumentMoniker": "..\\qlnv-client\\dist\\qlnv-client\\browser\\web.config",
-              "ToolTip": "F:\\ATPro\\.Net Web\\qlnv-client\\dist\\qlnv-client\\browser\\web.config",
-              "RelativeToolTip": "..\\qlnv-client\\dist\\qlnv-client\\browser\\web.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-10-08T07:52:20.716Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "CauHinhThongBaoService.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Service\\CauHinhThongBaoService.cs",
               "RelativeDocumentMoniker": "Service\\CauHinhThongBaoService.cs",
               "ToolTip": "F:\\ATPro\\.Net Web\\qlnv\\Service\\CauHinhThongBaoService.cs",
               "RelativeToolTip": "Service\\CauHinhThongBaoService.cs",
-              "ViewState": "AgIAAMAAAAAAAAAAAAAAANQAAAByAAAAAAAAAA==",
+              "ViewState": "AgIAAKQAAAAAAAAAAIAwwOoAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-23T01:40:22.277Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "CauHinhThongBaoScheduledService.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Service\\CauHinhThongBaoScheduledService.cs",
               "RelativeDocumentMoniker": "Service\\CauHinhThongBaoScheduledService.cs",
@@ -344,7 +328,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "AuthService.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Service\\AuthService.cs",
               "RelativeDocumentMoniker": "Service\\AuthService.cs",
@@ -356,7 +340,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "CauHinhThongBaoController.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\qlnv.Presentation\\Controllers\\CauHinhThongBaoController.cs",
               "RelativeDocumentMoniker": "qlnv.Presentation\\Controllers\\CauHinhThongBaoController.cs",
@@ -368,7 +352,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 8,
               "Title": "AuthController.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\qlnv.Presentation\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "qlnv.Presentation\\Controllers\\AuthController.cs",
@@ -380,7 +364,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
               "Title": "web.config",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv-client\\web.config",
               "RelativeDocumentMoniker": "..\\qlnv-client\\web.config",
@@ -392,7 +376,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 10,
               "Title": "qlnv.csproj",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\qlnv\\qlnv.csproj",
               "RelativeDocumentMoniker": "qlnv\\qlnv.csproj",
@@ -405,7 +389,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 11,
               "Title": "EmailThongBaoController.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\qlnv.Presentation\\Controllers\\EmailThongBaoController.cs",
               "RelativeDocumentMoniker": "qlnv.Presentation\\Controllers\\EmailThongBaoController.cs",
@@ -417,7 +401,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 12,
               "Title": "NgayLeController.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\qlnv.Presentation\\Controllers\\NgayLeController.cs",
               "RelativeDocumentMoniker": "qlnv.Presentation\\Controllers\\NgayLeController.cs",
@@ -429,7 +413,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 13,
               "Title": "NhanVienController.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\qlnv.Presentation\\Controllers\\NhanVienController.cs",
               "RelativeDocumentMoniker": "qlnv.Presentation\\Controllers\\NhanVienController.cs",
@@ -441,7 +425,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 14,
               "Title": "ThongBaoController.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\qlnv.Presentation\\Controllers\\ThongBaoController.cs",
               "RelativeDocumentMoniker": "qlnv.Presentation\\Controllers\\ThongBaoController.cs",
@@ -453,7 +437,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 15,
               "Title": "UserController.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\qlnv.Presentation\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "qlnv.Presentation\\Controllers\\UserController.cs",
@@ -465,7 +449,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 16,
               "Title": "web.config",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv-client\\dist\\qlnv-client\\web.config",
               "RelativeDocumentMoniker": "..\\qlnv-client\\dist\\qlnv-client\\web.config",
@@ -477,7 +461,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 17,
               "Title": "ThongBaoRepository.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Repository\\ThongBaoRepository.cs",
               "RelativeDocumentMoniker": "Repository\\ThongBaoRepository.cs",
@@ -489,7 +473,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 18,
               "Title": "IThongBaoRepository.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Contracts\\IThongBaoRepository.cs",
               "RelativeDocumentMoniker": "Contracts\\IThongBaoRepository.cs",
@@ -501,7 +485,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 20,
               "Title": "NgayLeRepository.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Repository\\NgayLeRepository.cs",
               "RelativeDocumentMoniker": "Repository\\NgayLeRepository.cs",
@@ -513,7 +497,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 19,
               "Title": "CauHinhThongBaoRepository.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Repository\\CauHinhThongBaoRepository.cs",
               "RelativeDocumentMoniker": "Repository\\CauHinhThongBaoRepository.cs",
@@ -525,7 +509,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 21,
               "Title": "IAuthService.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Service.Contracts\\IAuthService.cs",
               "RelativeDocumentMoniker": "Service.Contracts\\IAuthService.cs",
@@ -537,7 +521,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 22,
               "Title": "ICauHinhThongBaoRepository.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Contracts\\ICauHinhThongBaoRepository.cs",
               "RelativeDocumentMoniker": "Contracts\\ICauHinhThongBaoRepository.cs",
@@ -549,7 +533,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 23,
               "Title": "ICauHinhThongBaoService.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Service.Contracts\\ICauHinhThongBaoService.cs",
               "RelativeDocumentMoniker": "Service.Contracts\\ICauHinhThongBaoService.cs",
@@ -561,7 +545,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 24,
               "Title": "RefreshTokenRepository.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Repository\\RefreshTokenRepository.cs",
               "RelativeDocumentMoniker": "Repository\\RefreshTokenRepository.cs",
@@ -573,7 +557,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 25,
               "Title": "IRefreshTokenRepository.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Contracts\\IRefreshTokenRepository.cs",
               "RelativeDocumentMoniker": "Contracts\\IRefreshTokenRepository.cs",
@@ -585,7 +569,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 26,
               "Title": "UserDtos.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Entities\\DTOs\\UserDtos.cs",
               "RelativeDocumentMoniker": "Entities\\DTOs\\UserDtos.cs",
@@ -597,7 +581,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 27,
               "Title": "UserRepository.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Repository\\UserRepository.cs",
               "RelativeDocumentMoniker": "Repository\\UserRepository.cs",
@@ -609,7 +593,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 28,
               "Title": "CauHinhThongBaoDtos.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Entities\\DTOs\\CauHinhThongBaoDtos.cs",
               "RelativeDocumentMoniker": "Entities\\DTOs\\CauHinhThongBaoDtos.cs",
@@ -621,7 +605,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 29,
               "Title": "CauHinhThongBao.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Entities\\Models\\CauHinhThongBao.cs",
               "RelativeDocumentMoniker": "Entities\\Models\\CauHinhThongBao.cs",
@@ -633,7 +617,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 30,
               "Title": "INgayLeRepository.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Contracts\\INgayLeRepository.cs",
               "RelativeDocumentMoniker": "Contracts\\INgayLeRepository.cs",
@@ -645,7 +629,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 31,
               "Title": "IEmailThongBaoRepository.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Contracts\\IEmailThongBaoRepository.cs",
               "RelativeDocumentMoniker": "Contracts\\IEmailThongBaoRepository.cs",
@@ -657,7 +641,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 32,
               "Title": "EmailThongBaoRepository.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Repository\\EmailThongBaoRepository.cs",
               "RelativeDocumentMoniker": "Repository\\EmailThongBaoRepository.cs",
@@ -669,7 +653,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 33,
               "Title": "NhanVienRepository.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Repository\\NhanVienRepository.cs",
               "RelativeDocumentMoniker": "Repository\\NhanVienRepository.cs",
@@ -681,7 +665,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 34,
               "Title": "RepositoryContext.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Repository\\RepositoryContext.cs",
               "RelativeDocumentMoniker": "Repository\\RepositoryContext.cs",
@@ -693,7 +677,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 35,
               "Title": "INhanVienService.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Service.Contracts\\INhanVienService.cs",
               "RelativeDocumentMoniker": "Service.Contracts\\INhanVienService.cs",
@@ -705,7 +689,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 36,
               "Title": "IUserService.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Service.Contracts\\IUserService.cs",
               "RelativeDocumentMoniker": "Service.Contracts\\IUserService.cs",
@@ -717,7 +701,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 37,
               "Title": "IEmailSenderService.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Service.Contracts\\IEmailSenderService.cs",
               "RelativeDocumentMoniker": "Service.Contracts\\IEmailSenderService.cs",
@@ -729,7 +713,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 39,
               "Title": "EmailThongBaoDtos.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Entities\\DTOs\\EmailThongBaoDtos.cs",
               "RelativeDocumentMoniker": "Entities\\DTOs\\EmailThongBaoDtos.cs",
@@ -741,7 +725,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 38,
               "Title": "AuthDtos.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Entities\\DTOs\\AuthDtos.cs",
               "RelativeDocumentMoniker": "Entities\\DTOs\\AuthDtos.cs",
@@ -753,7 +737,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 40,
               "Title": "EmailThongBaoService.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Service\\EmailThongBaoService.cs",
               "RelativeDocumentMoniker": "Service\\EmailThongBaoService.cs",
@@ -765,7 +749,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 41,
               "Title": "IEmailThongBaoService.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Service.Contracts\\IEmailThongBaoService.cs",
               "RelativeDocumentMoniker": "Service.Contracts\\IEmailThongBaoService.cs",
@@ -777,7 +761,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 42,
               "Title": "NhanVienService.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Service\\NhanVienService.cs",
               "RelativeDocumentMoniker": "Service\\NhanVienService.cs",
@@ -789,7 +773,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 43,
               "Title": "INhanVienRepository.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Contracts\\INhanVienRepository.cs",
               "RelativeDocumentMoniker": "Contracts\\INhanVienRepository.cs",
@@ -801,7 +785,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 44,
               "Title": "IUserRepository.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Contracts\\IUserRepository.cs",
               "RelativeDocumentMoniker": "Contracts\\IUserRepository.cs",
@@ -813,7 +797,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 45,
               "Title": "UserService.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Service\\UserService.cs",
               "RelativeDocumentMoniker": "Service\\UserService.cs",
@@ -825,7 +809,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 46,
               "Title": "EmailSenderService.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Service\\EmailSenderService.cs",
               "RelativeDocumentMoniker": "Service\\EmailSenderService.cs",
@@ -837,7 +821,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 47,
               "Title": "NgayLeService.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Service\\NgayLeService.cs",
               "RelativeDocumentMoniker": "Service\\NgayLeService.cs",
@@ -849,7 +833,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 48,
               "Title": "INgayLeService.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Service.Contracts\\INgayLeService.cs",
               "RelativeDocumentMoniker": "Service.Contracts\\INgayLeService.cs",
@@ -861,7 +845,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 49,
               "Title": "NgayLeCreateDto.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Entities\\DTOs\\NgayLeCreateDto.cs",
               "RelativeDocumentMoniker": "Entities\\DTOs\\NgayLeCreateDto.cs",
@@ -873,7 +857,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 50,
               "Title": "NgayLe.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Entities\\Models\\NgayLe.cs",
               "RelativeDocumentMoniker": "Entities\\Models\\NgayLe.cs",
@@ -885,7 +869,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 51,
               "Title": "NhanVienDtos.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Entities\\DTOs\\NhanVienDtos.cs",
               "RelativeDocumentMoniker": "Entities\\DTOs\\NhanVienDtos.cs",
@@ -897,7 +881,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 52,
               "Title": "NhanVien.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Entities\\Models\\NhanVien.cs",
               "RelativeDocumentMoniker": "Entities\\Models\\NhanVien.cs",
@@ -909,7 +893,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 53,
               "Title": "GlobalExceptionHandler.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\qlnv\\GlobalExceptionHandler.cs",
               "RelativeDocumentMoniker": "qlnv\\GlobalExceptionHandler.cs",
@@ -921,7 +905,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 54,
               "Title": "MappingProfile.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\qlnv\\MappingProfile.cs",
               "RelativeDocumentMoniker": "qlnv\\MappingProfile.cs",
@@ -933,7 +917,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 55,
               "Title": "User.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Entities\\Models\\User.cs",
               "RelativeDocumentMoniker": "Entities\\Models\\User.cs",
@@ -945,7 +929,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 56,
               "Title": "AssemblyReference.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\qlnv.Presentation\\AssemblyReference.cs",
               "RelativeDocumentMoniker": "qlnv.Presentation\\AssemblyReference.cs",
@@ -957,7 +941,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 57,
               "Title": "RefreshToken.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Entities\\Models\\RefreshToken.cs",
               "RelativeDocumentMoniker": "Entities\\Models\\RefreshToken.cs",
@@ -969,7 +953,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 58,
               "Title": "Service.Contracts.csproj",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Service.Contracts\\Service.Contracts.csproj",
               "RelativeDocumentMoniker": "Service.Contracts\\Service.Contracts.csproj",
@@ -982,7 +966,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 59,
               "Title": "EmailThongBao.cs",
               "DocumentMoniker": "F:\\ATPro\\.Net Web\\qlnv\\Entities\\Models\\EmailThongBao.cs",
               "RelativeDocumentMoniker": "Entities\\Models\\EmailThongBao.cs",

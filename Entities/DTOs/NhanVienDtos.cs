@@ -24,9 +24,8 @@ namespace Entities.DTOs
         [StringLength(200)]
         public string Ten { get; set; } = string.Empty;
 
-        [Required]
         [EmailAddress]
-        public string Email { get; set; } = string.Empty;
+        public string? Email { get; set; }
 
         [Phone]
         public string? SoDienThoai { get; set; }
@@ -63,9 +62,8 @@ namespace Entities.DTOs
         [StringLength(200)]
         public string Ten { get; set; } = string.Empty;
 
-        [Required]
         [EmailAddress]
-        public string Email { get; set; } = string.Empty;
+        public string? Email { get; set; }
 
         [Phone]
         public string? SoDienThoai { get; set; }
