@@ -224,13 +224,17 @@ namespace Service
 
                     // Probation logic: Tính tổng số ngày (bao gồm cả cuối tuần, chỉ loại trừ ngày lễ)
                     // Áp dụng cho cả "1nam" và "khac"
-                    var join = nv.NgayVaoLam.Date;
-                    var totalDays = CountTotalDays(join, utcNow, holidays);
-                    if (totalDays >= soNgay)
+                    if (nv.NgayVaoLam.HasValue)
                     {
-                        var reason = $"Đủ {soNgay} ngày thử việc";
-                        toNotify.Add((nv.Id, nv.Email, reason));
+                        var join = nv.NgayVaoLam.Value.Date;
+                        var totalDays = CountTotalDays(join, utcNow, holidays);
+                        if (totalDays >= soNgay)
+                        {
+                            var reason = $"Đủ {soNgay} ngày thử việc";
+                            toNotify.Add((nv.Id, nv.Email, reason));
+                        }
                     }
+
                     if (contractHandled) continue;
                 }
                 catch

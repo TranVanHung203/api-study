@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("qlnv.Presentation")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+376681ed7274cbf659bbbd02249ef1516fd22377")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+459383abbe571e3933d33d0ba5f0473e127653f2")]
 [assembly: System.Reflection.AssemblyProductAttribute("qlnv.Presentation")]
 [assembly: System.Reflection.AssemblyTitleAttribute("qlnv.Presentation")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

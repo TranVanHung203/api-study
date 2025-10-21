@@ -12,7 +12,7 @@ using Repository;
 namespace Repository.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20251020032257_Init")]
+    [Migration("20251021103818_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -127,7 +127,7 @@ namespace Repository.Migrations
                     b.Property<DateTime>("NgaySinh")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime>("NgayVaoLam")
+                    b.Property<DateTime?>("NgayVaoLam")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("SoDienThoai")

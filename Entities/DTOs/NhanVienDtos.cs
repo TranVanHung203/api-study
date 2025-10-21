@@ -10,7 +10,7 @@ namespace Entities.DTOs
         public string Email { get; set; } = string.Empty;
         public string? SoDienThoai { get; set; }
         public string? DiaChi { get; set; }
-        public DateTime NgayVaoLam { get; set; }
+        public DateTime? NgayVaoLam { get; set; }
         public DateTime NgaySinh { get; set; }
         public DateTime? NgayLamViecChinhThuc { get; set; }
         public string? LoaiHopDong { get; set; }
@@ -33,9 +33,8 @@ namespace Entities.DTOs
         [StringLength(500)]
         public string? DiaChi { get; set; }
 
-        [Required]
         [DataType(DataType.Date)]
-        public DateTime NgayVaoLam { get; set; }
+        public DateTime? NgayVaoLam { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
@@ -71,9 +70,8 @@ namespace Entities.DTOs
         [StringLength(500)]
         public string? DiaChi { get; set; }
 
-        [Required]
         [DataType(DataType.Date)]
-        public DateTime NgayVaoLam { get; set; }
+        public DateTime? NgayVaoLam { get; set; }
 
         [Required]
         [DataType(DataType.Date)]

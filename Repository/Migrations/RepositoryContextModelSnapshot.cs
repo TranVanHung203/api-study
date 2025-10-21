@@ -124,7 +124,7 @@ namespace Repository.Migrations
                     b.Property<DateTime>("NgaySinh")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime>("NgayVaoLam")
+                    b.Property<DateTime?>("NgayVaoLam")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("SoDienThoai")

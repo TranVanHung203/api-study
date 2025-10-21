@@ -27,7 +27,7 @@ namespace qlnv.Presentation.Controllers
                 worksheet.Cell(1, 2).Value = "Email";
                 worksheet.Cell(1, 3).Value = "Số điện thoại";
                 worksheet.Cell(1, 4).Value = "Địa chỉ";
-                worksheet.Cell(1, 5).Value = "Ngày thử việc (*bắt buộc, dd/MM/yyyy)";
+                worksheet.Cell(1, 5).Value = "Ngày thử việc (dd/MM/yyyy)";
                 worksheet.Cell(1, 6).Value = "Ngày sinh (*bắt buộc, dd/MM/yyyy)";
                 worksheet.Cell(1, 7).Value = "Ngày ký hợp đồng chính thức (dd/MM/yyyy)";
                 worksheet.Cell(1, 8).Value = "Loại hợp đồng (*bắt buộc: gõ 1nam hoặc vothoihan hoặc khac)";

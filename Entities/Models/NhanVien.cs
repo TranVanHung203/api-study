@@ -7,7 +7,7 @@
         public string Email { get; set; }
         public string SoDienThoai { get; set; }
         public string DiaChi { get; set; }
-        public DateTime NgayVaoLam { get; set; }
+        public DateTime? NgayVaoLam { get; set; }
         public DateTime NgaySinh { get; set; }
         public DateTime? NgayLamViecChinhThuc { get; set; }
         // Loại hợp đồng: "1nam", "vothoihan", "khac"

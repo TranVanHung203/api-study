@@ -125,7 +125,7 @@ namespace Service
             existing.Email = dto.Email ?? existing.Email;
             existing.SoDienThoai = dto.SoDienThoai ?? existing.SoDienThoai;
             existing.DiaChi = dto.DiaChi ?? existing.DiaChi;
-            existing.NgayVaoLam = dto.NgayVaoLam;
+            existing.NgayVaoLam = dto.NgayVaoLam ?? existing.NgayVaoLam;
             existing.NgaySinh = dto.NgaySinh;
             existing.NgayLamViecChinhThuc = dto.NgayLamViecChinhThuc;
             existing.LoaiHopDong = dto.LoaiHopDong;
@@ -215,9 +215,6 @@ namespace Service
                         var email = row.Cell(2).GetString().Trim();
                         var soDienThoai = row.Cell(3).GetString().Trim();
                         var diaChi = row.Cell(4).GetString().Trim();
-                        var ngayVaoLamStr = row.Cell(5).GetString().Trim();
-                        var ngaySinhStr = row.Cell(6).GetString().Trim();
-                        var ngayLamViecChinhThucStr = row.Cell(7).GetString().Trim();
                         var loaiHopDong = row.Cell(8).GetString().Trim();
                         var soThangHopDongStr = row.Cell(9).GetString().Trim();
 
@@ -234,39 +231,122 @@ namespace Service
                             continue;
                         }
 
-                        // Parse dates với định dạng dd/MM/yyyy
-                        var dateFormat = "dd/MM/yyyy";
-                        var culture = System.Globalization.CultureInfo.InvariantCulture;
-                        
-                        if (!DateTime.TryParseExact(ngayVaoLamStr, dateFormat, culture, System.Globalization.DateTimeStyles.None, out var ngayVaoLam))
+                        // Parse dates - Hỗ trợ cả DateTime object và string từ Excel
+                        DateTime? ngayVaoLam = null;
+                        var cell5 = row.Cell(5);
+                        if (cell5.DataType == XLDataType.DateTime)
                         {
-                            result.Errors.Add(new ImportErrorDto
+                            ngayVaoLam = cell5.GetDateTime();
+                        }
+                        else if (!cell5.IsEmpty())
+                        {
+                            var ngayVaoLamStr = cell5.GetString().Trim();
+                            if (!string.IsNullOrEmpty(ngayVaoLamStr))
                             {
-                                Row = rowNumber,
-                                Error = "Ngày thử việc không hợp lệ (định dạng yêu cầu: dd/MM/yyyy)",
-                                Data = ngayVaoLamStr
-                            });
-                            result.FailedCount++;
-                            continue;
+                                var dateFormat = "dd/MM/yyyy";
+                                var culture = System.Globalization.CultureInfo.InvariantCulture;
+                                
+                                // Helper function để chuẩn hóa ngày: 1/2/2024 -> 01/02/2024
+                                string NormalizeDateString(string dateStr)
+                                {
+                                    if (string.IsNullOrEmpty(dateStr)) return dateStr;
+                                    
+                                    var parts = dateStr.Split('/');
+                                    if (parts.Length == 3)
+                                    {
+                                        var day = parts[0].Trim().PadLeft(2, '0');
+                                        var month = parts[1].Trim().PadLeft(2, '0');
+                                        var year = parts[2].Trim();
+                                        return $"{day}/{month}/{year}";
+                                    }
+                                    return dateStr;
+                                }
+                                
+                                ngayVaoLamStr = NormalizeDateString(ngayVaoLamStr);
+                                
+                                if (DateTime.TryParseExact(ngayVaoLamStr, dateFormat, culture, System.Globalization.DateTimeStyles.None, out var parsedNgayVaoLam))
+                                {
+                                    ngayVaoLam = parsedNgayVaoLam;
+                                }
+                            }
                         }
 
-                        if (!DateTime.TryParseExact(ngaySinhStr, dateFormat, culture, System.Globalization.DateTimeStyles.None, out var ngaySinh))
+                        DateTime ngaySinh;
+                        var cell6 = row.Cell(6);
+                        if (cell6.DataType == XLDataType.DateTime)
                         {
-                            result.Errors.Add(new ImportErrorDto
+                            ngaySinh = cell6.GetDateTime();
+                        }
+                        else
+                        {
+                            var ngaySinhStr = cell6.GetString().Trim();
+                            var dateFormat = "dd/MM/yyyy";
+                            var culture = System.Globalization.CultureInfo.InvariantCulture;
+                            
+                            string NormalizeDateString(string dateStr)
                             {
-                                Row = rowNumber,
-                                Error = "Ngày sinh không hợp lệ (định dạng yêu cầu: dd/MM/yyyy)",
-                                Data = ngaySinhStr
-                            });
-                            result.FailedCount++;
-                            continue;
+                                if (string.IsNullOrEmpty(dateStr)) return dateStr;
+                                var parts = dateStr.Split('/');
+                                if (parts.Length == 3)
+                                {
+                                    var day = parts[0].Trim().PadLeft(2, '0');
+                                    var month = parts[1].Trim().PadLeft(2, '0');
+                                    var year = parts[2].Trim();
+                                    return $"{day}/{month}/{year}";
+                                }
+                                return dateStr;
+                            }
+                            
+                            ngaySinhStr = NormalizeDateString(ngaySinhStr);
+                            
+                            if (!DateTime.TryParseExact(ngaySinhStr, dateFormat, culture, System.Globalization.DateTimeStyles.None, out ngaySinh))
+                            {
+                                result.Errors.Add(new ImportErrorDto
+                                {
+                                    Row = rowNumber,
+                                    Error = "Ngày sinh không hợp lệ (định dạng yêu cầu: dd/MM/yyyy)",
+                                    Data = ngaySinhStr
+                                });
+                                result.FailedCount++;
+                                continue;
+                            }
                         }
 
                         DateTime? ngayLamViecChinhThuc = null;
-                        if (!string.IsNullOrEmpty(ngayLamViecChinhThucStr) && 
-                            DateTime.TryParseExact(ngayLamViecChinhThucStr, dateFormat, culture, System.Globalization.DateTimeStyles.None, out var parsedNgayLamViecChinhThuc))
+                        var cell7 = row.Cell(7);
+                        if (cell7.DataType == XLDataType.DateTime)
                         {
-                            ngayLamViecChinhThuc = parsedNgayLamViecChinhThuc;
+                            ngayLamViecChinhThuc = cell7.GetDateTime();
+                        }
+                        else if (!cell7.IsEmpty())
+                        {
+                            var ngayLamViecChinhThucStr = cell7.GetString().Trim();
+                            if (!string.IsNullOrEmpty(ngayLamViecChinhThucStr))
+                            {
+                                var dateFormat = "dd/MM/yyyy";
+                                var culture = System.Globalization.CultureInfo.InvariantCulture;
+                                
+                                string NormalizeDateString(string dateStr)
+                                {
+                                    if (string.IsNullOrEmpty(dateStr)) return dateStr;
+                                    var parts = dateStr.Split('/');
+                                    if (parts.Length == 3)
+                                    {
+                                        var day = parts[0].Trim().PadLeft(2, '0');
+                                        var month = parts[1].Trim().PadLeft(2, '0');
+                                        var year = parts[2].Trim();
+                                        return $"{day}/{month}/{year}";
+                                    }
+                                    return dateStr;
+                                }
+                                
+                                ngayLamViecChinhThucStr = NormalizeDateString(ngayLamViecChinhThucStr);
+                                
+                                if (DateTime.TryParseExact(ngayLamViecChinhThucStr, dateFormat, culture, System.Globalization.DateTimeStyles.None, out var parsedNgayLamViecChinhThuc))
+                                {
+                                    ngayLamViecChinhThuc = parsedNgayLamViecChinhThuc;
+                                }
+                            }
                         }
 
                         // Hợp đồng: validate và chuẩn hóa

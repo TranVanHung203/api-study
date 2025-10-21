@@ -83,7 +83,7 @@ namespace Repository.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     DiaChi = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    NgayVaoLam = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    NgayVaoLam = table.Column<DateTime>(type: "datetime(6)", nullable: true),
                     NgaySinh = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     NgayLamViecChinhThuc = table.Column<DateTime>(type: "datetime(6)", nullable: true),
                     LoaiHopDong = table.Column<string>(type: "longtext", nullable: true)
