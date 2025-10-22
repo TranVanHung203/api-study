@@ -61,6 +61,7 @@ namespace Repository
         public async Task DeleteAsync(NhanVien nhanVien)
         {
             nhanVien.IsDeleted = true;
+            nhanVien.NgayNghiViec = DateTime.UtcNow;
             _context.NhanViens.Update(nhanVien);
             await _context.SaveChangesAsync();
         }
@@ -68,6 +69,7 @@ namespace Repository
         public async Task RestoreAsync(NhanVien nhanVien)
         {
             nhanVien.IsDeleted = false;
+            nhanVien.NgayNghiViec = null;
             _context.NhanViens.Update(nhanVien);
             await _context.SaveChangesAsync();
         }

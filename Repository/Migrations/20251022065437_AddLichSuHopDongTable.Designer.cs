@@ -12,8 +12,8 @@ using Repository;
 namespace Repository.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20251021103818_Init")]
-    partial class Init
+    [Migration("20251022065437_AddLichSuHopDongTable")]
+    partial class AddLichSuHopDongTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -45,11 +45,11 @@ namespace Repository.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<int>("SoNgayThongBao")
-                        .HasColumnType("int");
+                    b.Property<string>("SoNgayThongBao")
+                        .HasColumnType("longtext");
 
-                    b.Property<int>("SoNgayThongBaoTruoc")
-                        .HasColumnType("int");
+                    b.Property<string>("SoNgayThongBaoTruoc")
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
@@ -74,6 +74,37 @@ namespace Repository.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("EmailThongBao", (string)null);
+                });
+
+            modelBuilder.Entity("Entities.Models.LichSuHopDong", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("GhiChu")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("LoaiHopDong")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("NgayThayDoi")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("NhanVienId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SoThangHopDong")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NhanVienId");
+
+                    b.ToTable("LichSuHopDong", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.NgayLe", b =>
@@ -108,11 +139,9 @@ namespace Repository.Migrations
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("DiaChi")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<bool>("IsDeleted")
@@ -121,7 +150,16 @@ namespace Repository.Migrations
                     b.Property<string>("LoaiHopDong")
                         .HasColumnType("longtext");
 
+                    b.Property<DateTime?>("NgayKetThucHopDong")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime?>("NgayKetThucThuViec")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<DateTime?>("NgayLamViecChinhThuc")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime?>("NgayNghiViec")
                         .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("NgaySinh")
@@ -131,7 +169,6 @@ namespace Repository.Migrations
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("SoDienThoai")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<int?>("SoThangHopDong")
@@ -247,6 +284,17 @@ namespace Repository.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users", (string)null);
+                });
+
+            modelBuilder.Entity("Entities.Models.LichSuHopDong", b =>
+                {
+                    b.HasOne("Entities.Models.NhanVien", "NhanVien")
+                        .WithMany()
+                        .HasForeignKey("NhanVienId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("NhanVien");
                 });
 
             modelBuilder.Entity("Entities.Models.RefreshToken", b =>

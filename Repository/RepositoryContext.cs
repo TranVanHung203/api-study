@@ -16,6 +16,7 @@ namespace Repository
         public DbSet<EmailThongBao> EmailThongBaos { get; set; }
         public DbSet<ThongBao> ThongBaos { get; set; }
         public DbSet<CauHinhThongBao> CauHinhThongBaos { get; set; }
+        public DbSet<LichSuHopDong> LichSuHopDongs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -29,6 +30,7 @@ namespace Repository
             builder.Entity<EmailThongBao>().ToTable("EmailThongBao");
             builder.Entity<ThongBao>().ToTable("ThongBao");
             builder.Entity<CauHinhThongBao>().ToTable("CauHinhThongBao");
+            builder.Entity<LichSuHopDong>().ToTable("LichSuHopDong");
         }
     }
 }

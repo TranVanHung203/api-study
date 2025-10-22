@@ -19,7 +19,11 @@ var builder = WebApplication.CreateBuilder(args);
 // 🔹 Connection string MySQL (appsettings.json)
 var conn = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<RepositoryContext>(options =>
-    options.UseMySql(conn, ServerVersion.AutoDetect(conn)));
+{
+    options.UseMySql(conn, ServerVersion.AutoDetect(conn));
+    // Thêm Interceptor để tự động lưu lịch sử hợp đồng
+    options.AddInterceptors(new LichSuHopDongInterceptor());
+});
 
 // 🔹 DI Repositories
 builder.Services.AddScoped<IUserRepository, UserRepository>();
@@ -29,6 +33,7 @@ builder.Services.AddScoped<Contracts.INhanVienRepository, Repository.NhanVienRep
 builder.Services.AddScoped<Contracts.IEmailThongBaoRepository, Repository.EmailThongBaoRepository>();
 builder.Services.AddScoped<Contracts.ICauHinhThongBaoRepository, Repository.CauHinhThongBaoRepository>();
 builder.Services.AddScoped<Contracts.IThongBaoRepository, Repository.ThongBaoRepository>();
+builder.Services.AddScoped<Contracts.ILichSuHopDongRepository, Repository.LichSuHopDongRepository>();
 
 // 🔹 DI Services
 builder.Services.AddScoped<IAuthService, AuthService>();
@@ -38,8 +43,9 @@ builder.Services.AddScoped<INhanVienService, NhanVienService>();
 builder.Services.AddScoped<Service.Contracts.IEmailThongBaoService, Service.EmailThongBaoService>();
 builder.Services.AddScoped<Service.Contracts.ICauHinhThongBaoService, Service.CauHinhThongBaoService>();
 builder.Services.AddScoped<Service.Contracts.IThongBaoService, Service.ThongBaoService>();
+builder.Services.AddScoped<Service.Contracts.ILichSuHopDongService, Service.LichSuHopDongService>();
 // Register scheduled hosted service to run notifications daily at 08:00 local time
-builder.Services.AddHostedService<Service.CauHinhThongBaoScheduledService>();
+// builder.Services.AddHostedService<Service.CauHinhThongBaoScheduledService>();
 // Register birthday notification service to run on 1st of each month at 08:00 local time
 builder.Services.AddHostedService<Service.BirthdayScheduledService>();
 // //Provide access to HttpContext for background services when necessary

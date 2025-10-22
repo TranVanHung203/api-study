@@ -32,12 +32,14 @@ namespace Service
             var entity = new NhanVien
             {
                 Ten = dto.Ten,
-                Email = dto.Email ?? string.Empty,
-                SoDienThoai = dto.SoDienThoai ?? string.Empty,
-                DiaChi = dto.DiaChi ?? string.Empty,
+                Email = string.IsNullOrWhiteSpace(dto.Email) ? null : dto.Email,
+                SoDienThoai = string.IsNullOrWhiteSpace(dto.SoDienThoai) ? null : dto.SoDienThoai,
+                DiaChi = string.IsNullOrWhiteSpace(dto.DiaChi) ? null : dto.DiaChi,
                 NgayVaoLam = dto.NgayVaoLam,
                 NgaySinh = dto.NgaySinh,
                 NgayLamViecChinhThuc = dto.NgayLamViecChinhThuc,
+                NgayKetThucThuViec = dto.NgayKetThucThuViec,
+                NgayKetThucHopDong = dto.NgayKetThucHopDong,
                 LoaiHopDong = dto.LoaiHopDong,
                 SoThangHopDong = soThang
             };
@@ -52,8 +54,11 @@ namespace Service
                 NgayVaoLam = created.NgayVaoLam,
                 NgaySinh = created.NgaySinh,
                 NgayLamViecChinhThuc = created.NgayLamViecChinhThuc,
+                NgayKetThucThuViec = created.NgayKetThucThuViec,
+                NgayKetThucHopDong = created.NgayKetThucHopDong,
                 LoaiHopDong = created.LoaiHopDong,
                 SoThangHopDong = created.SoThangHopDong,
+                NgayNghiViec = created.NgayNghiViec,
                 IsDeleted = created.IsDeleted
             };
         }
@@ -71,8 +76,11 @@ namespace Service
                 NgayVaoLam = nv.NgayVaoLam,
                 NgaySinh = nv.NgaySinh,
                 NgayLamViecChinhThuc = nv.NgayLamViecChinhThuc,
+                NgayKetThucThuViec = nv.NgayKetThucThuViec,
+                NgayKetThucHopDong = nv.NgayKetThucHopDong,
                 LoaiHopDong = nv.LoaiHopDong,
                 SoThangHopDong = nv.SoThangHopDong,
+                NgayNghiViec = nv.NgayNghiViec,
                 IsDeleted = nv.IsDeleted
             };
         }
@@ -96,8 +104,11 @@ namespace Service
                     NgayVaoLam = n.NgayVaoLam,
                     NgaySinh = n.NgaySinh,
                     NgayLamViecChinhThuc = n.NgayLamViecChinhThuc,
+                    NgayKetThucThuViec = n.NgayKetThucThuViec,
+                    NgayKetThucHopDong = n.NgayKetThucHopDong,
                     LoaiHopDong = n.LoaiHopDong,
                     SoThangHopDong = n.SoThangHopDong,
+                    NgayNghiViec = n.NgayNghiViec,
                     IsDeleted = n.IsDeleted
                 })
             };
@@ -122,12 +133,14 @@ namespace Service
             }
 
             existing.Ten = dto.Ten;
-            existing.Email = dto.Email ?? existing.Email;
-            existing.SoDienThoai = dto.SoDienThoai ?? existing.SoDienThoai;
-            existing.DiaChi = dto.DiaChi ?? existing.DiaChi;
+            existing.Email = string.IsNullOrWhiteSpace(dto.Email) ? existing.Email : dto.Email;
+            existing.SoDienThoai = string.IsNullOrWhiteSpace(dto.SoDienThoai) ? existing.SoDienThoai : dto.SoDienThoai;
+            existing.DiaChi = string.IsNullOrWhiteSpace(dto.DiaChi) ? existing.DiaChi : dto.DiaChi;
             existing.NgayVaoLam = dto.NgayVaoLam ?? existing.NgayVaoLam;
             existing.NgaySinh = dto.NgaySinh;
             existing.NgayLamViecChinhThuc = dto.NgayLamViecChinhThuc;
+            existing.NgayKetThucThuViec = dto.NgayKetThucThuViec;
+            existing.NgayKetThucHopDong = dto.NgayKetThucHopDong;
             existing.LoaiHopDong = dto.LoaiHopDong;
             existing.SoThangHopDong = soThang;
 
@@ -143,8 +156,11 @@ namespace Service
                 NgayVaoLam = existing.NgayVaoLam,
                 NgaySinh = existing.NgaySinh,
                 NgayLamViecChinhThuc = existing.NgayLamViecChinhThuc,
+                NgayKetThucThuViec = existing.NgayKetThucThuViec,
+                NgayKetThucHopDong = existing.NgayKetThucHopDong,
                 LoaiHopDong = existing.LoaiHopDong,
                 SoThangHopDong = existing.SoThangHopDong,
+                NgayNghiViec = existing.NgayNghiViec,
                 IsDeleted = existing.IsDeleted
             };
         }
@@ -174,8 +190,11 @@ namespace Service
                 NgayVaoLam = existing.NgayVaoLam,
                 NgaySinh = existing.NgaySinh,
                 NgayLamViecChinhThuc = existing.NgayLamViecChinhThuc,
+                NgayKetThucThuViec = existing.NgayKetThucThuViec,
+                NgayKetThucHopDong = existing.NgayKetThucHopDong,
                 LoaiHopDong = existing.LoaiHopDong,
                 SoThangHopDong = existing.SoThangHopDong,
+                NgayNghiViec = existing.NgayNghiViec,
                 IsDeleted = existing.IsDeleted
             };
         }
@@ -210,13 +229,13 @@ namespace Service
                     
                     try
                     {
-                        // Đọc dữ liệu từ các cột (thứ tự): Tên, Email, SĐT, Địa chỉ, Ngày vào làm, Ngày sinh, Ngày làm việc chính thức, LoaiHopDong, SoThangHopDong
+                        // Đọc dữ liệu từ các cột: Tên, Email, SĐT, Địa chỉ, Ngày thử việc, Ngày sinh, Ngày ký HĐ chính thức, Ngày kết thúc thử việc, Ngày kết thúc HĐ, Loại HĐ, Số tháng HĐ
                         var ten = row.Cell(1).GetString().Trim();
                         var email = row.Cell(2).GetString().Trim();
                         var soDienThoai = row.Cell(3).GetString().Trim();
                         var diaChi = row.Cell(4).GetString().Trim();
-                        var loaiHopDong = row.Cell(8).GetString().Trim();
-                        var soThangHopDongStr = row.Cell(9).GetString().Trim();
+                        var loaiHopDong = row.Cell(10).GetString().Trim();
+                        var soThangHopDongStr = row.Cell(11).GetString().Trim();
 
                         // Validate required fields - CHỈ TÊN là bắt buộc
                         if (string.IsNullOrEmpty(ten))
@@ -349,6 +368,82 @@ namespace Service
                             }
                         }
 
+                        // Parse Ngày kết thúc thử việc (cell 8)
+                        DateTime? ngayKetThucThuViec = null;
+                        var cell8 = row.Cell(8);
+                        if (cell8.DataType == XLDataType.DateTime)
+                        {
+                            ngayKetThucThuViec = cell8.GetDateTime();
+                        }
+                        else if (!cell8.IsEmpty())
+                        {
+                            var ngayKetThucThuViecStr = cell8.GetString().Trim();
+                            if (!string.IsNullOrEmpty(ngayKetThucThuViecStr))
+                            {
+                                var dateFormat = "dd/MM/yyyy";
+                                var culture = System.Globalization.CultureInfo.InvariantCulture;
+                                
+                                string NormalizeDateString(string dateStr)
+                                {
+                                    if (string.IsNullOrEmpty(dateStr)) return dateStr;
+                                    var parts = dateStr.Split('/');
+                                    if (parts.Length == 3)
+                                    {
+                                        var day = parts[0].Trim().PadLeft(2, '0');
+                                        var month = parts[1].Trim().PadLeft(2, '0');
+                                        var year = parts[2].Trim();
+                                        return $"{day}/{month}/{year}";
+                                    }
+                                    return dateStr;
+                                }
+                                
+                                ngayKetThucThuViecStr = NormalizeDateString(ngayKetThucThuViecStr);
+                                
+                                if (DateTime.TryParseExact(ngayKetThucThuViecStr, dateFormat, culture, System.Globalization.DateTimeStyles.None, out var parsedNgayKetThucThuViec))
+                                {
+                                    ngayKetThucThuViec = parsedNgayKetThucThuViec;
+                                }
+                            }
+                        }
+
+                        // Parse Ngày kết thúc hợp đồng (cell 9)
+                        DateTime? ngayKetThucHopDong = null;
+                        var cell9 = row.Cell(9);
+                        if (cell9.DataType == XLDataType.DateTime)
+                        {
+                            ngayKetThucHopDong = cell9.GetDateTime();
+                        }
+                        else if (!cell9.IsEmpty())
+                        {
+                            var ngayKetThucHopDongStr = cell9.GetString().Trim();
+                            if (!string.IsNullOrEmpty(ngayKetThucHopDongStr))
+                            {
+                                var dateFormat = "dd/MM/yyyy";
+                                var culture = System.Globalization.CultureInfo.InvariantCulture;
+                                
+                                string NormalizeDateString(string dateStr)
+                                {
+                                    if (string.IsNullOrEmpty(dateStr)) return dateStr;
+                                    var parts = dateStr.Split('/');
+                                    if (parts.Length == 3)
+                                    {
+                                        var day = parts[0].Trim().PadLeft(2, '0');
+                                        var month = parts[1].Trim().PadLeft(2, '0');
+                                        var year = parts[2].Trim();
+                                        return $"{day}/{month}/{year}";
+                                    }
+                                    return dateStr;
+                                }
+                                
+                                ngayKetThucHopDongStr = NormalizeDateString(ngayKetThucHopDongStr);
+                                
+                                if (DateTime.TryParseExact(ngayKetThucHopDongStr, dateFormat, culture, System.Globalization.DateTimeStyles.None, out var parsedNgayKetThucHopDong))
+                                {
+                                    ngayKetThucHopDong = parsedNgayKetThucHopDong;
+                                }
+                            }
+                        }
+
                         // Hợp đồng: validate và chuẩn hóa
                         if (string.IsNullOrEmpty(loaiHopDong)) loaiHopDong = "1nam"; // mặc định
                         if (loaiHopDong != "1nam" && loaiHopDong != "vothoihan" && loaiHopDong != "khac")
@@ -384,12 +479,14 @@ namespace Service
                         var createDto = new CreateNhanVienDto
                         {
                             Ten = ten,
-                            Email = string.IsNullOrEmpty(email) ? null : email,
-                            SoDienThoai = string.IsNullOrEmpty(soDienThoai) ? null : soDienThoai,
-                            DiaChi = string.IsNullOrEmpty(diaChi) ? null : diaChi,
+                            Email = string.IsNullOrWhiteSpace(email) ? null : email,
+                            SoDienThoai = string.IsNullOrWhiteSpace(soDienThoai) ? null : soDienThoai,
+                            DiaChi = string.IsNullOrWhiteSpace(diaChi) ? null : diaChi,
                             NgayVaoLam = ngayVaoLam,
                             NgaySinh = ngaySinh,
                             NgayLamViecChinhThuc = ngayLamViecChinhThuc,
+                            NgayKetThucThuViec = ngayKetThucThuViec,
+                            NgayKetThucHopDong = ngayKetThucHopDong,
                             LoaiHopDong = loaiHopDong,
                             SoThangHopDong = soThangHopDong
                         };

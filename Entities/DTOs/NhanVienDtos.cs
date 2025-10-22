@@ -7,14 +7,17 @@ namespace Entities.DTOs
     {
         public int Id { get; set; }
         public string Ten { get; set; } = string.Empty;
-        public string Email { get; set; } = string.Empty;
+        public string? Email { get; set; }
         public string? SoDienThoai { get; set; }
         public string? DiaChi { get; set; }
         public DateTime? NgayVaoLam { get; set; }
         public DateTime NgaySinh { get; set; }
         public DateTime? NgayLamViecChinhThuc { get; set; }
+        public DateTime? NgayKetThucThuViec { get; set; }
+        public DateTime? NgayKetThucHopDong { get; set; }
         public string? LoaiHopDong { get; set; }
         public int? SoThangHopDong { get; set; }
+        public DateTime? NgayNghiViec { get; set; }
         public bool IsDeleted { get; set; }
     }
 
@@ -24,10 +27,8 @@ namespace Entities.DTOs
         [StringLength(200)]
         public string Ten { get; set; } = string.Empty;
 
-        [EmailAddress]
         public string? Email { get; set; }
 
-        [Phone]
         public string? SoDienThoai { get; set; }
 
         [StringLength(500)]
@@ -42,6 +43,12 @@ namespace Entities.DTOs
 
         [DataType(DataType.Date)]
         public DateTime? NgayLamViecChinhThuc { get; set; }
+
+        [DataType(DataType.Date)]
+        public DateTime? NgayKetThucThuViec { get; set; }
+
+        [DataType(DataType.Date)]
+        public DateTime? NgayKetThucHopDong { get; set; }
 
         // "1nam" | "vothoihan" | "khac" (có thể mở rộng thành enum sau)
         [Required]
@@ -61,10 +68,8 @@ namespace Entities.DTOs
         [StringLength(200)]
         public string Ten { get; set; } = string.Empty;
 
-        [EmailAddress]
         public string? Email { get; set; }
 
-        [Phone]
         public string? SoDienThoai { get; set; }
 
         [StringLength(500)]
@@ -79,6 +84,12 @@ namespace Entities.DTOs
 
         [DataType(DataType.Date)]
         public DateTime? NgayLamViecChinhThuc { get; set; }
+
+        [DataType(DataType.Date)]
+        public DateTime? NgayKetThucThuViec { get; set; }
+
+        [DataType(DataType.Date)]
+        public DateTime? NgayKetThucHopDong { get; set; }
 
         [Required]
         [RegularExpression("^(1nam|vothoihan|khac)$", ErrorMessage = "LoaiHopDong phải là 1nam, vothoihan hoặc khac")]
