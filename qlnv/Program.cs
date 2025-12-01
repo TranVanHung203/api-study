@@ -13,7 +13,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using qlnv;
 using Microsoft.OpenApi.Models;
-
+// branch tranvanhung
 var builder = WebApplication.CreateBuilder(args);
 
 // 🔹 Connection string MySQL (appsettings.json)
