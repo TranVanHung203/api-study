@@ -45,3 +45,27 @@ F:\ATPro\.Net Web\qlnv\qlnv.Presentation\obj\Debug\net9.0\qlnv.Presentation.dll
 F:\ATPro\.Net Web\qlnv\qlnv.Presentation\obj\Debug\net9.0\refint\qlnv.Presentation.dll
 F:\ATPro\.Net Web\qlnv\qlnv.Presentation\obj\Debug\net9.0\qlnv.Presentation.pdb
 F:\ATPro\.Net Web\qlnv\qlnv.Presentation\obj\Debug\net9.0\ref\qlnv.Presentation.dll
+F:\thanhnhan\api-study\qlnv.Presentation\bin\Debug\net9.0\qlnv.Presentation.deps.json
+F:\thanhnhan\api-study\qlnv.Presentation\bin\Debug\net9.0\qlnv.Presentation.dll
+F:\thanhnhan\api-study\qlnv.Presentation\bin\Debug\net9.0\qlnv.Presentation.pdb
+F:\thanhnhan\api-study\qlnv.Presentation\bin\Debug\net9.0\Contracts.dll
+F:\thanhnhan\api-study\qlnv.Presentation\bin\Debug\net9.0\Entities.dll
+F:\thanhnhan\api-study\qlnv.Presentation\bin\Debug\net9.0\Repository.dll
+F:\thanhnhan\api-study\qlnv.Presentation\bin\Debug\net9.0\Service.Contracts.dll
+F:\thanhnhan\api-study\qlnv.Presentation\bin\Debug\net9.0\Service.dll
+F:\thanhnhan\api-study\qlnv.Presentation\bin\Debug\net9.0\Entities.pdb
+F:\thanhnhan\api-study\qlnv.Presentation\bin\Debug\net9.0\Service.pdb
+F:\thanhnhan\api-study\qlnv.Presentation\bin\Debug\net9.0\Contracts.pdb
+F:\thanhnhan\api-study\qlnv.Presentation\bin\Debug\net9.0\Repository.pdb
+F:\thanhnhan\api-study\qlnv.Presentation\bin\Debug\net9.0\Service.Contracts.pdb
+F:\thanhnhan\api-study\qlnv.Presentation\obj\Debug\net9.0\qlnv.Presentation.csproj.AssemblyReference.cache
+F:\thanhnhan\api-study\qlnv.Presentation\obj\Debug\net9.0\qlnv.Presentation.GeneratedMSBuildEditorConfig.editorconfig
+F:\thanhnhan\api-study\qlnv.Presentation\obj\Debug\net9.0\qlnv.Presentation.AssemblyInfoInputs.cache
+F:\thanhnhan\api-study\qlnv.Presentation\obj\Debug\net9.0\qlnv.Presentation.AssemblyInfo.cs
+F:\thanhnhan\api-study\qlnv.Presentation\obj\Debug\net9.0\qlnv.Presentation.csproj.CoreCompileInputs.cache
+F:\thanhnhan\api-study\qlnv.Presentation\obj\Debug\net9.0\qlnv.Presentation.sourcelink.json
+F:\thanhnhan\api-study\qlnv.Presentation\obj\Debug\net9.0\qlnv.Pre.C5CC7D40.Up2Date
+F:\thanhnhan\api-study\qlnv.Presentation\obj\Debug\net9.0\qlnv.Presentation.dll
+F:\thanhnhan\api-study\qlnv.Presentation\obj\Debug\net9.0\refint\qlnv.Presentation.dll
+F:\thanhnhan\api-study\qlnv.Presentation\obj\Debug\net9.0\qlnv.Presentation.pdb
+F:\thanhnhan\api-study\qlnv.Presentation\obj\Debug\net9.0\ref\qlnv.Presentation.dll

@@ -29,3 +29,19 @@ F:\ATPro\.Net Web\qlnv\Service.Contracts\obj\Debug\net9.0\Service.Contracts.dll
 F:\ATPro\.Net Web\qlnv\Service.Contracts\obj\Debug\net9.0\refint\Service.Contracts.dll
 F:\ATPro\.Net Web\qlnv\Service.Contracts\obj\Debug\net9.0\Service.Contracts.pdb
 F:\ATPro\.Net Web\qlnv\Service.Contracts\obj\Debug\net9.0\ref\Service.Contracts.dll
+F:\thanhnhan\api-study\Service.Contracts\bin\Debug\net9.0\Service.Contracts.deps.json
+F:\thanhnhan\api-study\Service.Contracts\bin\Debug\net9.0\Service.Contracts.dll
+F:\thanhnhan\api-study\Service.Contracts\bin\Debug\net9.0\Service.Contracts.pdb
+F:\thanhnhan\api-study\Service.Contracts\bin\Debug\net9.0\Entities.dll
+F:\thanhnhan\api-study\Service.Contracts\bin\Debug\net9.0\Entities.pdb
+F:\thanhnhan\api-study\Service.Contracts\obj\Debug\net9.0\Service.Contracts.csproj.AssemblyReference.cache
+F:\thanhnhan\api-study\Service.Contracts\obj\Debug\net9.0\Service.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+F:\thanhnhan\api-study\Service.Contracts\obj\Debug\net9.0\Service.Contracts.AssemblyInfoInputs.cache
+F:\thanhnhan\api-study\Service.Contracts\obj\Debug\net9.0\Service.Contracts.AssemblyInfo.cs
+F:\thanhnhan\api-study\Service.Contracts\obj\Debug\net9.0\Service.Contracts.csproj.CoreCompileInputs.cache
+F:\thanhnhan\api-study\Service.Contracts\obj\Debug\net9.0\Service.Contracts.sourcelink.json
+F:\thanhnhan\api-study\Service.Contracts\obj\Debug\net9.0\Service..DEC3DE55.Up2Date
+F:\thanhnhan\api-study\Service.Contracts\obj\Debug\net9.0\Service.Contracts.dll
+F:\thanhnhan\api-study\Service.Contracts\obj\Debug\net9.0\refint\Service.Contracts.dll
+F:\thanhnhan\api-study\Service.Contracts\obj\Debug\net9.0\Service.Contracts.pdb
+F:\thanhnhan\api-study\Service.Contracts\obj\Debug\net9.0\ref\Service.Contracts.dll

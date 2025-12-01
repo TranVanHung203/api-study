@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\ATPro\\.Net Web\\qlnv\\Repository\\Repository.csproj": {}
+    "F:\\thanhnhan\\api-study\\Repository\\Repository.csproj": {}
   },
   "projects": {
-    "F:\\ATPro\\.Net Web\\qlnv\\Contracts\\Contracts.csproj": {
+    "F:\\thanhnhan\\api-study\\Contracts\\Contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\ATPro\\.Net Web\\qlnv\\Contracts\\Contracts.csproj",
+        "projectUniqueName": "F:\\thanhnhan\\api-study\\Contracts\\Contracts.csproj",
         "projectName": "Contracts",
-        "projectPath": "F:\\ATPro\\.Net Web\\qlnv\\Contracts\\Contracts.csproj",
+        "projectPath": "F:\\thanhnhan\\api-study\\Contracts\\Contracts.csproj",
         "packagesPath": "C:\\Users\\Tran Van Hung\\.nuget\\packages\\",
-        "outputPath": "F:\\ATPro\\.Net Web\\qlnv\\Contracts\\obj\\",
+        "outputPath": "F:\\thanhnhan\\api-study\\Contracts\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,8 +32,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "F:\\ATPro\\.Net Web\\qlnv\\Entities\\Entities.csproj": {
-                "projectPath": "F:\\ATPro\\.Net Web\\qlnv\\Entities\\Entities.csproj"
+              "F:\\thanhnhan\\api-study\\Entities\\Entities.csproj": {
+                "projectPath": "F:\\thanhnhan\\api-study\\Entities\\Entities.csproj"
               }
             }
           }
@@ -73,14 +73,14 @@
         }
       }
     },
-    "F:\\ATPro\\.Net Web\\qlnv\\Entities\\Entities.csproj": {
+    "F:\\thanhnhan\\api-study\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\ATPro\\.Net Web\\qlnv\\Entities\\Entities.csproj",
+        "projectUniqueName": "F:\\thanhnhan\\api-study\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "F:\\ATPro\\.Net Web\\qlnv\\Entities\\Entities.csproj",
+        "projectPath": "F:\\thanhnhan\\api-study\\Entities\\Entities.csproj",
         "packagesPath": "C:\\Users\\Tran Van Hung\\.nuget\\packages\\",
-        "outputPath": "F:\\ATPro\\.Net Web\\qlnv\\Entities\\obj\\",
+        "outputPath": "F:\\thanhnhan\\api-study\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -138,14 +138,14 @@
         }
       }
     },
-    "F:\\ATPro\\.Net Web\\qlnv\\Repository\\Repository.csproj": {
+    "F:\\thanhnhan\\api-study\\Repository\\Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\ATPro\\.Net Web\\qlnv\\Repository\\Repository.csproj",
+        "projectUniqueName": "F:\\thanhnhan\\api-study\\Repository\\Repository.csproj",
         "projectName": "Repository",
-        "projectPath": "F:\\ATPro\\.Net Web\\qlnv\\Repository\\Repository.csproj",
+        "projectPath": "F:\\thanhnhan\\api-study\\Repository\\Repository.csproj",
         "packagesPath": "C:\\Users\\Tran Van Hung\\.nuget\\packages\\",
-        "outputPath": "F:\\ATPro\\.Net Web\\qlnv\\Repository\\obj\\",
+        "outputPath": "F:\\thanhnhan\\api-study\\Repository\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -166,11 +166,11 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "F:\\ATPro\\.Net Web\\qlnv\\Contracts\\Contracts.csproj": {
-                "projectPath": "F:\\ATPro\\.Net Web\\qlnv\\Contracts\\Contracts.csproj"
+              "F:\\thanhnhan\\api-study\\Contracts\\Contracts.csproj": {
+                "projectPath": "F:\\thanhnhan\\api-study\\Contracts\\Contracts.csproj"
               },
-              "F:\\ATPro\\.Net Web\\qlnv\\Entities\\Entities.csproj": {
-                "projectPath": "F:\\ATPro\\.Net Web\\qlnv\\Entities\\Entities.csproj"
+              "F:\\thanhnhan\\api-study\\Entities\\Entities.csproj": {
+                "projectPath": "F:\\thanhnhan\\api-study\\Entities\\Entities.csproj"
               }
             }
           }

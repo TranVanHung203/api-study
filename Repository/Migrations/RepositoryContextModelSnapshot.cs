@@ -22,164 +22,6 @@ namespace Repository.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
-            modelBuilder.Entity("Entities.Models.CauHinhThongBao", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("DanhSachNamThongBao")
-                        .HasColumnType("longtext");
-
-                    b.Property<bool>("ExcludeSaturday")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<bool>("ExcludeSunday")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<string>("SoNgayThongBao")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("SoNgayThongBaoTruoc")
-                        .HasColumnType("longtext");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("CauHinhThongBao", (string)null);
-                });
-
-            modelBuilder.Entity("Entities.Models.EmailThongBao", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("longtext");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("EmailThongBao", (string)null);
-                });
-
-            modelBuilder.Entity("Entities.Models.LichSuHopDong", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("GhiChu")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("LoaiHopDong")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<DateTime>("NgayThayDoi")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<int>("NhanVienId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("SoThangHopDong")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NhanVienId");
-
-                    b.ToTable("LichSuHopDong", (string)null);
-                });
-
-            modelBuilder.Entity("Entities.Models.NgayLe", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("NgayBatDau")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<DateTime>("NgayKetThuc")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("TenNgayLe")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("NgayLe", (string)null);
-                });
-
-            modelBuilder.Entity("Entities.Models.NhanVien", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("DiaChi")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("longtext");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<string>("LoaiHopDong")
-                        .HasColumnType("longtext");
-
-                    b.Property<DateTime?>("NgayKetThucHopDong")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<DateTime?>("NgayKetThucThuViec")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<DateTime?>("NgayLamViecChinhThuc")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<DateTime?>("NgayNghiViec")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<DateTime>("NgaySinh")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<DateTime?>("NgayVaoLam")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("SoDienThoai")
-                        .HasColumnType("longtext");
-
-                    b.Property<int?>("SoThangHopDong")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Ten")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("NhanVien", (string)null);
-                });
-
             modelBuilder.Entity("Entities.Models.RefreshToken", b =>
                 {
                     b.Property<int>("Id")
@@ -208,34 +50,6 @@ namespace Repository.Migrations
                     b.ToTable("RefreshTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Entities.Models.ThongBao", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("EmailNhan")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("LyDo")
-                        .HasColumnType("longtext");
-
-                    b.Property<DateTime>("NgayGui")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<int>("NhanVienId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NhanVienId");
-
-                    b.ToTable("ThongBao", (string)null);
-                });
-
             modelBuilder.Entity("Entities.Models.User", b =>
                 {
                     b.Property<Guid>("Id")
@@ -256,6 +70,9 @@ namespace Repository.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("tinyint(1)");
 
+                    b.Property<DateTime?>("ExpiresAt")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<string>("FullName")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -264,14 +81,12 @@ namespace Repository.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("tinyint(1)");
 
+                    b.Property<bool>("IsGuest")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<string>("PasswordHash")
                         .IsRequired()
                         .HasColumnType("longtext");
-
-                    b.Property<string>("Role")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)");
 
                     b.Property<string>("Username")
                         .IsRequired()
@@ -283,17 +98,6 @@ namespace Repository.Migrations
                     b.ToTable("Users", (string)null);
                 });
 
-            modelBuilder.Entity("Entities.Models.LichSuHopDong", b =>
-                {
-                    b.HasOne("Entities.Models.NhanVien", "NhanVien")
-                        .WithMany()
-                        .HasForeignKey("NhanVienId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("NhanVien");
-                });
-
             modelBuilder.Entity("Entities.Models.RefreshToken", b =>
                 {
                     b.HasOne("Entities.Models.User", "User")
@@ -303,17 +107,6 @@ namespace Repository.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Entities.Models.ThongBao", b =>
-                {
-                    b.HasOne("Entities.Models.NhanVien", "NhanVien")
-                        .WithMany()
-                        .HasForeignKey("NhanVienId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("NhanVien");
                 });
 
             modelBuilder.Entity("Entities.Models.User", b =>

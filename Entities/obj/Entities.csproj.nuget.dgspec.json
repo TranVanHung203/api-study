@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\ATPro\\.Net Web\\qlnv\\Entities\\Entities.csproj": {}
+    "F:\\thanhnhan\\api-study\\Entities\\Entities.csproj": {}
   },
   "projects": {
-    "F:\\ATPro\\.Net Web\\qlnv\\Entities\\Entities.csproj": {
+    "F:\\thanhnhan\\api-study\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\ATPro\\.Net Web\\qlnv\\Entities\\Entities.csproj",
+        "projectUniqueName": "F:\\thanhnhan\\api-study\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "F:\\ATPro\\.Net Web\\qlnv\\Entities\\Entities.csproj",
+        "projectPath": "F:\\thanhnhan\\api-study\\Entities\\Entities.csproj",
         "packagesPath": "C:\\Users\\Tran Van Hung\\.nuget\\packages\\",
-        "outputPath": "F:\\ATPro\\.Net Web\\qlnv\\Entities\\obj\\",
+        "outputPath": "F:\\thanhnhan\\api-study\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

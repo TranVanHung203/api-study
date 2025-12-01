@@ -33,3 +33,21 @@ F:\ATPro\.Net Web\qlnv\Repository\obj\Debug\net9.0\Repository.dll
 F:\ATPro\.Net Web\qlnv\Repository\obj\Debug\net9.0\refint\Repository.dll
 F:\ATPro\.Net Web\qlnv\Repository\obj\Debug\net9.0\Repository.pdb
 F:\ATPro\.Net Web\qlnv\Repository\obj\Debug\net9.0\ref\Repository.dll
+F:\thanhnhan\api-study\Repository\bin\Debug\net9.0\Repository.deps.json
+F:\thanhnhan\api-study\Repository\bin\Debug\net9.0\Repository.dll
+F:\thanhnhan\api-study\Repository\bin\Debug\net9.0\Repository.pdb
+F:\thanhnhan\api-study\Repository\bin\Debug\net9.0\Contracts.dll
+F:\thanhnhan\api-study\Repository\bin\Debug\net9.0\Entities.dll
+F:\thanhnhan\api-study\Repository\bin\Debug\net9.0\Entities.pdb
+F:\thanhnhan\api-study\Repository\bin\Debug\net9.0\Contracts.pdb
+F:\thanhnhan\api-study\Repository\obj\Debug\net9.0\Repository.csproj.AssemblyReference.cache
+F:\thanhnhan\api-study\Repository\obj\Debug\net9.0\Repository.GeneratedMSBuildEditorConfig.editorconfig
+F:\thanhnhan\api-study\Repository\obj\Debug\net9.0\Repository.AssemblyInfoInputs.cache
+F:\thanhnhan\api-study\Repository\obj\Debug\net9.0\Repository.AssemblyInfo.cs
+F:\thanhnhan\api-study\Repository\obj\Debug\net9.0\Repository.csproj.CoreCompileInputs.cache
+F:\thanhnhan\api-study\Repository\obj\Debug\net9.0\Repository.sourcelink.json
+F:\thanhnhan\api-study\Repository\obj\Debug\net9.0\Repository.csproj.Up2Date
+F:\thanhnhan\api-study\Repository\obj\Debug\net9.0\Repository.dll
+F:\thanhnhan\api-study\Repository\obj\Debug\net9.0\refint\Repository.dll
+F:\thanhnhan\api-study\Repository\obj\Debug\net9.0\Repository.pdb
+F:\thanhnhan\api-study\Repository\obj\Debug\net9.0\ref\Repository.dll

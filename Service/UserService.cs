@@ -26,12 +26,8 @@ namespace Service
             var byEmail = await _repo.GetByEmailAsync(dto.Email);
             if (byEmail != null) throw new InvalidOperationException("Email already exists");
 
-            // Default role is Assistant
-            var role = "Assistant";
-            if (!string.IsNullOrWhiteSpace(dto.Role) && currentUserRole == "Admin")
-            {
-                role = dto.Role;
-            }
+            // Create user with IsGuest flag
+            var expiresAt = dto.IsGuest ? DateTime.UtcNow.AddHours(24) : (DateTime?)null;
 
             var user = new User
             {
@@ -39,7 +35,8 @@ namespace Service
                 Email = dto.Email,
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password),
                 FullName = dto.FullName ?? string.Empty,
-                Role = role
+                IsGuest = dto.IsGuest,
+                ExpiresAt = expiresAt
             };
 
             var created = await _repo.CreateAsync(user);
@@ -50,7 +47,8 @@ namespace Service
                 Username = created.Username,
                 Email = created.Email,
                 FullName = created.FullName,
-                Role = created.Role
+                IsGuest = created.IsGuest,
+                ExpiresAt = created.ExpiresAt
             };
         }
 
@@ -65,7 +63,8 @@ namespace Service
                 Username = u.Username,
                 Email = u.Email,
                 FullName = u.FullName,
-                Role = u.Role
+                IsGuest = u.IsGuest,
+                ExpiresAt = u.ExpiresAt
             };
         }
 
@@ -85,7 +84,8 @@ namespace Service
                     Username = u.Username,
                     Email = u.Email,
                     FullName = u.FullName,
-                    Role = u.Role
+                    IsGuest = u.IsGuest,
+                    ExpiresAt = u.ExpiresAt
                 })
             };
         }
@@ -95,17 +95,18 @@ namespace Service
             var existing = await _repo.GetByIdAsync(dto.Id);
             if (existing == null) throw new KeyNotFoundException("User not found");
 
-            // Role change only allowed by Admin
-            if (!string.IsNullOrWhiteSpace(dto.Role) && dto.Role != existing.Role)
-            {
-                if (currentUserRole != "Admin")
-                    throw new UnauthorizedAccessException("Only Admin can change role");
-
-                existing.Role = dto.Role;
-            }
-
             if (!string.IsNullOrWhiteSpace(dto.FullName))
                 existing.FullName = dto.FullName;
+
+            // Allow updating email (must be unique)
+            if (!string.IsNullOrWhiteSpace(dto.Email) && !string.Equals(dto.Email, existing.Email, StringComparison.OrdinalIgnoreCase))
+            {
+                var byEmail = await _repo.GetByEmailAsync(dto.Email);
+                if (byEmail != null && byEmail.Id != existing.Id)
+                    throw new InvalidOperationException("Email already exists");
+
+                existing.Email = dto.Email;
+            }
 
             await _repo.UpdateAsync(existing);
 
@@ -115,7 +116,8 @@ namespace Service
                 Username = existing.Username,
                 Email = existing.Email,
                 FullName = existing.FullName,
-                Role = existing.Role
+                IsGuest = existing.IsGuest,
+                ExpiresAt = existing.ExpiresAt
             };
         }
 

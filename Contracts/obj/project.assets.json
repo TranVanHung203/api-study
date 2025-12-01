@@ -33,11 +33,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\ATPro\\.Net Web\\qlnv\\Contracts\\Contracts.csproj",
+      "projectUniqueName": "F:\\thanhnhan\\api-study\\Contracts\\Contracts.csproj",
       "projectName": "Contracts",
-      "projectPath": "F:\\ATPro\\.Net Web\\qlnv\\Contracts\\Contracts.csproj",
+      "projectPath": "F:\\thanhnhan\\api-study\\Contracts\\Contracts.csproj",
       "packagesPath": "C:\\Users\\Tran Van Hung\\.nuget\\packages\\",
-      "outputPath": "F:\\ATPro\\.Net Web\\qlnv\\Contracts\\obj\\",
+      "outputPath": "F:\\thanhnhan\\api-study\\Contracts\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -58,8 +58,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "F:\\ATPro\\.Net Web\\qlnv\\Entities\\Entities.csproj": {
-              "projectPath": "F:\\ATPro\\.Net Web\\qlnv\\Entities\\Entities.csproj"
+            "F:\\thanhnhan\\api-study\\Entities\\Entities.csproj": {
+              "projectPath": "F:\\thanhnhan\\api-study\\Entities\\Entities.csproj"
             }
           }
         }

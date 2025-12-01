@@ -5305,11 +5305,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\ATPro\\.Net Web\\qlnv\\qlnv.Presentation\\qlnv.Presentation.csproj",
+      "projectUniqueName": "F:\\thanhnhan\\api-study\\qlnv.Presentation\\qlnv.Presentation.csproj",
       "projectName": "qlnv.Presentation",
-      "projectPath": "F:\\ATPro\\.Net Web\\qlnv\\qlnv.Presentation\\qlnv.Presentation.csproj",
+      "projectPath": "F:\\thanhnhan\\api-study\\qlnv.Presentation\\qlnv.Presentation.csproj",
       "packagesPath": "C:\\Users\\Tran Van Hung\\.nuget\\packages\\",
-      "outputPath": "F:\\ATPro\\.Net Web\\qlnv\\qlnv.Presentation\\obj\\",
+      "outputPath": "F:\\thanhnhan\\api-study\\qlnv.Presentation\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -5330,11 +5330,11 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "F:\\ATPro\\.Net Web\\qlnv\\Entities\\Entities.csproj": {
-              "projectPath": "F:\\ATPro\\.Net Web\\qlnv\\Entities\\Entities.csproj"
+            "F:\\thanhnhan\\api-study\\Entities\\Entities.csproj": {
+              "projectPath": "F:\\thanhnhan\\api-study\\Entities\\Entities.csproj"
             },
-            "F:\\ATPro\\.Net Web\\qlnv\\Service\\Service.csproj": {
-              "projectPath": "F:\\ATPro\\.Net Web\\qlnv\\Service\\Service.csproj"
+            "F:\\thanhnhan\\api-study\\Service\\Service.csproj": {
+              "projectPath": "F:\\thanhnhan\\api-study\\Service\\Service.csproj"
             }
           }
         }

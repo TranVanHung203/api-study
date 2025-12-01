@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "c8k43at7eLU=",
+  "dgSpecHash": "vaTUQVszI1s=",
   "success": true,
-  "projectFilePath": "F:\\ATPro\\.Net Web\\qlnv\\Service\\Service.csproj",
+  "projectFilePath": "F:\\thanhnhan\\api-study\\Service\\Service.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Tran Van Hung\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Tran Van Hung\\.nuget\\packages\\closedxml\\0.105.0\\closedxml.0.105.0.nupkg.sha512",

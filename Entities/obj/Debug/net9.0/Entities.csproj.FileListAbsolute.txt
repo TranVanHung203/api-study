@@ -21,3 +21,15 @@ F:\ATPro\.Net Web\qlnv\Entities\obj\Debug\net9.0\Entities.dll
 F:\ATPro\.Net Web\qlnv\Entities\obj\Debug\net9.0\refint\Entities.dll
 F:\ATPro\.Net Web\qlnv\Entities\obj\Debug\net9.0\Entities.pdb
 F:\ATPro\.Net Web\qlnv\Entities\obj\Debug\net9.0\ref\Entities.dll
+F:\thanhnhan\api-study\Entities\bin\Debug\net9.0\Entities.deps.json
+F:\thanhnhan\api-study\Entities\bin\Debug\net9.0\Entities.dll
+F:\thanhnhan\api-study\Entities\bin\Debug\net9.0\Entities.pdb
+F:\thanhnhan\api-study\Entities\obj\Debug\net9.0\Entities.GeneratedMSBuildEditorConfig.editorconfig
+F:\thanhnhan\api-study\Entities\obj\Debug\net9.0\Entities.AssemblyInfoInputs.cache
+F:\thanhnhan\api-study\Entities\obj\Debug\net9.0\Entities.AssemblyInfo.cs
+F:\thanhnhan\api-study\Entities\obj\Debug\net9.0\Entities.csproj.CoreCompileInputs.cache
+F:\thanhnhan\api-study\Entities\obj\Debug\net9.0\Entities.sourcelink.json
+F:\thanhnhan\api-study\Entities\obj\Debug\net9.0\Entities.dll
+F:\thanhnhan\api-study\Entities\obj\Debug\net9.0\refint\Entities.dll
+F:\thanhnhan\api-study\Entities\obj\Debug\net9.0\Entities.pdb
+F:\thanhnhan\api-study\Entities\obj\Debug\net9.0\ref\Entities.dll

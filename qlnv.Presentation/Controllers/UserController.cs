@@ -18,7 +18,7 @@ namespace qlnv.Presentation.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+        [AllowAnonymous]
         public async Task<IActionResult> Create([FromBody] CreateUserDto dto)
         {
             if (dto == null) return BadRequest();
@@ -31,12 +31,8 @@ namespace qlnv.Presentation.Controllers
             var byEmail = await _repo.GetByEmailAsync(dto.Email);
             if (byEmail != null) return Conflict(new { message = "Email already exists" });
 
-            // Default role is Assistant. If the caller is Admin and provided a role, honor it.
-            var role = "Assistant";
-            if (!string.IsNullOrWhiteSpace(dto.Role) && User.IsInRole("Admin"))
-            {
-                role = dto.Role;
-            }
+            // Create user with IsGuest flag
+            var expiresAt = dto.IsGuest ? DateTime.UtcNow.AddHours(24) : (DateTime?)null;
 
             var user = new User
             {
@@ -44,7 +40,8 @@ namespace qlnv.Presentation.Controllers
                 Email = dto.Email,
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password),
                 FullName = dto.FullName ?? string.Empty,
-                Role = role
+                IsGuest = dto.IsGuest,
+                ExpiresAt = expiresAt
             };
 
             var created = await _repo.CreateAsync(user);
@@ -55,7 +52,8 @@ namespace qlnv.Presentation.Controllers
                 Username = created.Username,
                 Email = created.Email,
                 FullName = created.FullName,
-                Role = created.Role
+                IsGuest = created.IsGuest,
+                ExpiresAt = created.ExpiresAt
             };
 
             return CreatedAtAction(nameof(GetById), new { id = outDto.Id }, outDto);
@@ -80,7 +78,8 @@ namespace qlnv.Presentation.Controllers
                     Username = u.Username,
                     Email = u.Email,
                     FullName = u.FullName,
-                    Role = u.Role
+                    IsGuest = u.IsGuest,
+                    ExpiresAt = u.ExpiresAt
                 })
             };
 
@@ -93,11 +92,11 @@ namespace qlnv.Presentation.Controllers
         {
             var u = await _repo.GetByIdAsync(id);
             if (u == null) return NotFound();
-            return Ok(new UserDto { Id = u.Id, Username = u.Username, Email = u.Email, FullName = u.FullName, Role = u.Role });
+            return Ok(new UserDto { Id = u.Id, Username = u.Username, Email = u.Email, FullName = u.FullName, IsGuest = u.IsGuest, ExpiresAt = u.ExpiresAt });
         }
 
         [HttpPut("{id}")]
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         public async Task<IActionResult> Update(Guid id, [FromBody] UpdateUserDto dto)
         {
             if (dto == null) return BadRequest();
@@ -106,20 +105,6 @@ namespace qlnv.Presentation.Controllers
 
             var existing = await _repo.GetByIdAsync(id);
             if (existing == null) return NotFound();
-
-            // Role change only allowed by Admin
-            if (!string.IsNullOrWhiteSpace(dto.Role) && dto.Role != existing.Role)
-            {
-                if (!User.IsInRole("Admin"))
-                    return Forbid();
-
-                existing.Role = dto.Role;
-            }
-            else
-            {
-                // Ensure non-admins cannot attempt to change role — silently ignore role changes from Assistants
-                // (role already unchanged if not provided or same as existing)
-            }
 
             if (!string.IsNullOrWhiteSpace(dto.FullName)) existing.FullName = dto.FullName;
 
@@ -135,11 +120,11 @@ namespace qlnv.Presentation.Controllers
 
             await _repo.UpdateAsync(existing);
 
-            return Ok(new UserDto { Id = existing.Id, Username = existing.Username, Email = existing.Email, FullName = existing.FullName, Role = existing.Role });
+            return Ok(new UserDto { Id = existing.Id, Username = existing.Username, Email = existing.Email, FullName = existing.FullName, IsGuest = existing.IsGuest, ExpiresAt = existing.ExpiresAt });
         }
 
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         public async Task<IActionResult> Delete(Guid id)
         {
             var existing = await _repo.GetByIdAsync(id);
@@ -193,24 +178,6 @@ namespace qlnv.Presentation.Controllers
             {
                 return StatusCode(500, new { message = "Lỗi hệ thống", detail = ex.Message });
             }
-        }
-
-        [HttpGet("debug-claims")]
-        [Authorize]
-        public IActionResult DebugClaims()
-        {
-            var claims = User.Claims.Select(c => new { 
-                Type = c.Type, 
-                Value = c.Value,
-                ValueType = c.ValueType,
-                Issuer = c.Issuer 
-            }).ToList();
-            
-            return Ok(new { 
-                identity = User.Identity?.Name,
-                isAuthenticated = User.Identity?.IsAuthenticated,
-                claims = claims 
-            });
         }
     }
 }

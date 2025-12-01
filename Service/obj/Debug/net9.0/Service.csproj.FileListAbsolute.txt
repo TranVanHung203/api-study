@@ -41,3 +41,25 @@ F:\ATPro\.Net Web\qlnv\Service\obj\Debug\net9.0\Service.dll
 F:\ATPro\.Net Web\qlnv\Service\obj\Debug\net9.0\refint\Service.dll
 F:\ATPro\.Net Web\qlnv\Service\obj\Debug\net9.0\Service.pdb
 F:\ATPro\.Net Web\qlnv\Service\obj\Debug\net9.0\ref\Service.dll
+F:\thanhnhan\api-study\Service\bin\Debug\net9.0\Service.deps.json
+F:\thanhnhan\api-study\Service\bin\Debug\net9.0\Service.dll
+F:\thanhnhan\api-study\Service\bin\Debug\net9.0\Service.pdb
+F:\thanhnhan\api-study\Service\bin\Debug\net9.0\Contracts.dll
+F:\thanhnhan\api-study\Service\bin\Debug\net9.0\Entities.dll
+F:\thanhnhan\api-study\Service\bin\Debug\net9.0\Repository.dll
+F:\thanhnhan\api-study\Service\bin\Debug\net9.0\Service.Contracts.dll
+F:\thanhnhan\api-study\Service\bin\Debug\net9.0\Entities.pdb
+F:\thanhnhan\api-study\Service\bin\Debug\net9.0\Service.Contracts.pdb
+F:\thanhnhan\api-study\Service\bin\Debug\net9.0\Repository.pdb
+F:\thanhnhan\api-study\Service\bin\Debug\net9.0\Contracts.pdb
+F:\thanhnhan\api-study\Service\obj\Debug\net9.0\Service.csproj.AssemblyReference.cache
+F:\thanhnhan\api-study\Service\obj\Debug\net9.0\Service.GeneratedMSBuildEditorConfig.editorconfig
+F:\thanhnhan\api-study\Service\obj\Debug\net9.0\Service.AssemblyInfoInputs.cache
+F:\thanhnhan\api-study\Service\obj\Debug\net9.0\Service.AssemblyInfo.cs
+F:\thanhnhan\api-study\Service\obj\Debug\net9.0\Service.csproj.CoreCompileInputs.cache
+F:\thanhnhan\api-study\Service\obj\Debug\net9.0\Service.sourcelink.json
+F:\thanhnhan\api-study\Service\obj\Debug\net9.0\Service.csproj.Up2Date
+F:\thanhnhan\api-study\Service\obj\Debug\net9.0\Service.dll
+F:\thanhnhan\api-study\Service\obj\Debug\net9.0\refint\Service.dll
+F:\thanhnhan\api-study\Service\obj\Debug\net9.0\Service.pdb
+F:\thanhnhan\api-study\Service\obj\Debug\net9.0\ref\Service.dll

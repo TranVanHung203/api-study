@@ -27,9 +27,11 @@ namespace Entities.Models
     public string? EmailConfirmationToken { get; set; }
         public DateTime? EmailConfirmationExpiry { get; set; }
 
-    // Role of user: Admin or Assistant
-    [StringLength(50)]
-    public string Role { get; set; } = "Assistant";
+    // Is guest user (true = guest, false = registered)
+    public bool IsGuest { get; set; } = false;
+
+        // Guest user timeout - auto delete after this time
+        public DateTime? ExpiresAt { get; set; }
 
         // Refresh Tokens
     public ICollection<RefreshToken> RefreshTokens { get; set; } = new List<RefreshToken>();

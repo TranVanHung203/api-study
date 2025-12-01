@@ -21,36 +21,19 @@ var conn = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<RepositoryContext>(options =>
 {
     options.UseMySql(conn, ServerVersion.AutoDetect(conn));
-    // Thêm Interceptor để tự động lưu lịch sử hợp đồng
-    options.AddInterceptors(new LichSuHopDongInterceptor());
 });
 
 // 🔹 DI Repositories
 builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<INgayLeRepository, NgayLeRepository>();
 builder.Services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
-builder.Services.AddScoped<Contracts.INhanVienRepository, Repository.NhanVienRepository>();
-builder.Services.AddScoped<Contracts.IEmailThongBaoRepository, Repository.EmailThongBaoRepository>();
-builder.Services.AddScoped<Contracts.ICauHinhThongBaoRepository, Repository.CauHinhThongBaoRepository>();
-builder.Services.AddScoped<Contracts.IThongBaoRepository, Repository.ThongBaoRepository>();
-builder.Services.AddScoped<Contracts.ILichSuHopDongRepository, Repository.LichSuHopDongRepository>();
 
 // 🔹 DI Services
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IEmailSenderService, EmailSenderService>();
-builder.Services.AddScoped<INgayLeService, NgayLeService>();
-builder.Services.AddScoped<INhanVienService, NhanVienService>();
-builder.Services.AddScoped<Service.Contracts.IEmailThongBaoService, Service.EmailThongBaoService>();
-builder.Services.AddScoped<Service.Contracts.ICauHinhThongBaoService, Service.CauHinhThongBaoService>();
-builder.Services.AddScoped<Service.Contracts.IThongBaoService, Service.ThongBaoService>();
-builder.Services.AddScoped<Service.Contracts.ILichSuHopDongService, Service.LichSuHopDongService>();
-// Register scheduled hosted service to run notifications daily at 08:00 local time
-// builder.Services.AddHostedService<Service.CauHinhThongBaoScheduledService>();
-// Register birthday notification service to run on 1st of each month at 08:00 local time
-builder.Services.AddHostedService<Service.BirthdayScheduledService>();
-// //Provide access to HttpContext for background services when necessary
-builder.Services.AddHttpContextAccessor();
-// Hosted background job removed: notifications will be triggered manually via controller
+
+// 🔹 Background Service: Guest user cleanup
+builder.Services.AddHostedService<Service.GuestUserCleanupService>();
+
 // 🔹 JWT
 var jwt = builder.Configuration.GetSection("JwtSettings");
 var keyString = jwt["Key"] ?? throw new InvalidOperationException("JwtSettings:Key is not configured.");
@@ -114,14 +97,7 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-builder.Services.AddControllers(options =>
-{
-    // Require authenticated users by default for all controllers
-    var policy = new Microsoft.AspNetCore.Authorization.AuthorizationPolicyBuilder()
-                     .RequireAuthenticatedUser()
-                     .Build();
-    options.Filters.Add(new Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter(policy));
-})
+builder.Services.AddControllers()
     .AddApplicationPart(typeof(qlnv.Presentation.AssemblyReference).Assembly)
     .AddJsonOptions(opts =>
     {
