@@ -229,7 +229,7 @@ namespace Service
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword(password),
                 FullName = $"Guest {guestId}",
                 IsGuest = true,
-                ExpiresAt = DateTime.UtcNow.AddHours(24) // Expire after 24 hours
+                ExpiresAt = DateTime.UtcNow.AddMinutes(1) // Expire after 24 hours
             };
 
             var created = await _userRepo.CreateAsync(user);
